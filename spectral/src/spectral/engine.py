@@ -8,7 +8,7 @@ from typing import Any
 try:
     import sounddevice as sd
     _AUDIO_AVAILABLE = True
-except ImportError:
+except (ImportError, OSError):
     _AUDIO_AVAILABLE = False
 
 SAMPLE_RATE = 44100

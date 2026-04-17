@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import { readFileSync, writeFileSync, existsSync } from "fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 import type { Graph, Node, Edge } from "../types.js";
 
@@ -12,7 +12,6 @@ function load(): Graph {
 
 function save(graph: Graph): void {
   const dir = join(process.env.HOME ?? "~", ".cartographer");
-  const { mkdirSync } = await import("fs");
   mkdirSync(dir, { recursive: true });
   writeFileSync(DATA_PATH, JSON.stringify(graph, null, 2));
 }
@@ -28,7 +27,7 @@ export function addNode(title: string, body: string, tags: string[]): Node {
     updatedAt: new Date().toISOString(),
   };
   graph.nodes.push(node);
-  writeFileSync(DATA_PATH, JSON.stringify(graph, null, 2));
+  save(graph);
   return node;
 }
 
@@ -39,7 +38,7 @@ export function link(fromTitle: string, toTitle: string, label?: string): Edge {
   if (!from || !to) throw new Error(`Node not found`);
   const edge: Edge = { from: from.id, to: to.id, label, weight: 1 };
   graph.edges.push(edge);
-  writeFileSync(DATA_PATH, JSON.stringify(graph, null, 2));
+  save(graph);
   return edge;
 }
 

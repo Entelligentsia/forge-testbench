@@ -2,3 +2,5 @@ emberglow
 *.test
 /vendor
 .env
+.forge/
+engineering/

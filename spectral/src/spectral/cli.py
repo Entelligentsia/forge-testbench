@@ -1,7 +1,12 @@
+from __future__ import annotations
+
+import sys
+
 import click
 from rich.console import Console
 from rich.panel import Panel
-from spectral.moods import MOODS
+from rich.table import Table
+from spectral.moods import LAYER_DESCRIPTIONS, MOODS
 from spectral.engine import SoundEngine
 
 console = Console()
@@ -27,7 +32,6 @@ def play(mood: str, duration: int, bpm: int | None):
 @main.command()
 def moods():
     """List available mood profiles."""
-    from rich.table import Table
     t = Table(title="Mood Profiles")
     t.add_column("Mood", style="cyan")
     t.add_column("BPM")
@@ -35,3 +39,21 @@ def moods():
     for name, p in MOODS.items():
         t.add_row(name, str(p["bpm"]), p["description"])
     console.print(t)
+
+@main.command()
+@click.argument("mood")
+def info(mood: str) -> None:
+    """Show detailed info for a mood profile."""
+    if mood in MOODS:
+        profile = MOODS[mood]
+        header = f"BPM: {profile['bpm']} | Reverb: {profile['reverb']} | Layers: {len(profile['layers'])}"
+        t = Table(title="Layers")
+        t.add_column("Layer", style="cyan")
+        t.add_column("Description")
+        for layer in profile["layers"]:
+            t.add_row(layer, LAYER_DESCRIPTIONS.get(layer, layer))
+        console.print(Panel(t, title=f"spectral: {mood}", subtitle=header))
+    else:
+        available = ", ".join(MOODS.keys())
+        console.print(Panel(f"Available: {available}", title=f"No such mood: '{mood}'", style="red dim"))
+        sys.exit(1)

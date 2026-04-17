@@ -4,6 +4,7 @@ Monorepo containing three independent CLI tools used as a Forge SDLC testbench:
 
 | Directory | Language | Purpose |
 |-----------|----------|---------|
+| `hello/` | Python 3.11+ | Minimal CLI greeter — primary show-and-tell target |
 | `cartographer/` | TypeScript (Node ESM) | Terminal knowledge-graph tool (`carto` CLI) |
 | `emberglow/` | Go 1.22 | Smart home DSL interpreter (`.ember` recipe files) |
 | `spectral/` | Python 3.11+ | Mood-based ambient soundscape generator |
