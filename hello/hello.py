@@ -12,7 +12,7 @@ def main(name: str, count: int, shout: bool) -> None:
     """Greet NAME."""
     greeting = f"Hello, {name}!"
     if shout:
-        greeting = greeting.upper  # bug: missing ()
+        greeting = greeting.upper()
     for _ in range(count):
         click.echo(greeting)
 
