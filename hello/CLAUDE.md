@@ -21,6 +21,404 @@ hello Alice --count 3   # repeat
 
 - `hello.py`: `--shout` flag does not work — `greeting.upper` should be `greeting.upper()`
 
+## 🔍 Take the Tour (5 minutes)
+
+Forge generated all this from a 26-line Python file. Explore:
+
+### 1. Master Index
+Open `engineering/MASTER_INDEX.md` — registry of all sprints, tasks, bugs.
+- 2 sprints (S01 active, S02 planning)
+- 2 bugs (both fixed, full artifacts)
+- 1/2 tasks complete in S01
+
+### 2. Bug Artifacts (Self-Learning in Action)
+Open `engineering/bugs/HELLO-B01-shout-flag-no-effect/`
+- `INDEX.md`: Bug summary
+- `BUG_FIX_PLAN.md`: Fix strategy
+- `CODE_REVIEW.md`: Supervisor review
+- `PROGRESS.md`: Implementation log
+
+👉 **Key insight**: Forge documented *why* bug happened, not just the fix.
+Root cause feeds KB → prevents similar bugs later.
+
+### 3. Sprint Artifacts
+Open `engineering/sprints/HELLO-S01/HELLO-S01-T01/`
+- `PLAN.md`: Implementation plan
+- `PLAN_REVIEW.md`: Supervisor plan review
+- `CODE_REVIEW.md`: Supervisor code review
+- `ARCHITECT_APPROVAL.md`: Final approval before commit
+- `COST_REPORT.md`: Token usage breakdown
+
+👉 **Key insight**: Multi-stage review (plan → code → architect). Not just "ship it."
+
+### 4. Knowledge Base
+Open `engineering/architecture/INDEX.md`
+- Stack: Python 3.11, click CLI, pytest
+- Processes: pip install -e ., pytest, no CI yet
+- Routing: Single CLI entry point (no API)
+
+Open `engineering/business-domain/INDEX.md`
+- Entities: (none — too simple)
+- Domain: CLI greeter (no complex domain model)
+
+👉 **Key insight**: Forge adapted to minimal project. No forced abstractions.
+
+### 5. Personas
+Open `.forge/personas/engineer.md`
+- Project-specific: "You are implementing features for hello, a minimal CLI greeter"
+- Stack-aware: "Uses click for CLI parsing, pytest for testing"
+- KB-linked: References engineering/ docs for context
+
+Open `.forge/personas/supervisor.md`
+- Review criteria: "Check click.echo usage, pytest test coverage"
+- Project conventions: "Single-file design, no external dependencies"
+
+👉 **Key insight**: Not generic "Engineer" persona. Tailored to this project.
+
+### 6. Workflows
+Open `.forge/workflows/fix_bug.md`
+- Phase 1: Triage (reproduce, classify severity)
+- Phase 2: Root cause analysis
+- Phase 3: Propose fix
+- Phase 4: Implement + test
+- Phase 5: KB writeback (self-learning!)
+
+👉 **Key insight**: Workflows reference personas by name, KB docs by path.
+
+### 7. Forge Itself Dogfoods This
+Forge uses its own bug workflow. Hit issue?
+```bash
+/forge:report-bug
+```
+- Structured interview (what happened, expected vs actual)
+- Auto-captures: version, stack, OS, logs
+- Drafts GitHub issue, files to Entelligentsia/forge repo
+- You confirm before submission
+
+👉 **Key insight**: Lowers feedback barrier. Structured bug reports, not "paste error in browser."
+
+## 🎯 Try These Commands (3 minutes)
+
+### Ask Tomoshibi (Forge Concierge)
+```bash
+/forge:ask What sprints exist?
+/forge:ask What's the status of HELLO-S01?
+/forge:ask Show me bug HELLO-B01
+```
+
+Tomoshibi reads `.forge/store/` and `engineering/` — instant answers, no file hunting.
+
+### Check Health
+```bash
+/forge:health
+```
+Detects stale KB docs, orphaned entities, missing skills.
+
+### Inspect Config
+```bash
+/forge:config
+```
+Shows current mode (fast/full), paths, version.
+
+### Report Bugs in Forge Itself
+```bash
+/forge:report-bug
+```
+
+If you hit issues with Forge (command fails, confusing behavior, doc errors):
+- Forge interviews you (what happened, expected vs actual, steps to reproduce)
+- Auto-captures: Forge version, project stack, OS, relevant logs
+- Drafts GitHub issue in standard format
+- Files to Entelligentsia/forge repo with your confirmation
+
+👉 **Key insight**: Forge dogfoods its own bug workflow. Structured reporting, not "paste error in browser."
+
+### Verify Security (Enterprise Users)
+```bash
+/security-watchdog:scan-plugin forge:forge
+```
+
+Scans Forge plugin you just installed:
+- 171 files analyzed
+- Threat categories: prompt injection, data exfil, code exec, hooks
+- Shows critical/warnings/info
+
+Or check pre-published report:  
+[docs/security/scan-v0.24.1.md](https://github.com/Entelligentsia/forge/blob/main/docs/security/scan-v0.24.1.md)
+
+👉 **Key insight**: Every Forge release scanned before publish. Public audit trail in `docs/security/`.
+
+Want to scan other installed plugins?
+```bash
+/security-watchdog:scan-plugin <plugin-name>
+```
+
+Supply chain security for plugin ecosystem.
+
+### List Available Commands
+```bash
+/help forge
+```
+Shows all Forge commands + project-specific commands (if generated).
+
+## 🚀 Your First Sprint (5 minutes)
+
+### Sprint Intake
+```bash
+/sprint-intake
+```
+
+When prompted:
+- **Feature**: "Add --goodbye flag that says 'Goodbye, NAME!'"
+- **Sprint goal**: "Add farewell greeting option"
+- **Acceptance criteria**: "User can run `hello Alice --goodbye` and see 'Goodbye, Alice!'"
+
+Forge creates `engineering/sprints/HELLO-S03/intake.md`.
+
+### Sprint Planning
+```bash
+/sprint-plan HELLO-S03
+```
+
+Forge:
+1. Breaks feature into tasks (likely 2: add flag, add test)
+2. Estimates complexity (S/M/L)
+3. Creates dependency graph
+4. Writes `engineering/sprints/HELLO-S03/plan.md`
+
+### Run Sprint (or just one task)
+```bash
+/run-task HELLO-S03-T01
+```
+
+Watch Forge:
+1. **Plan** task (Engineer reads KB, proposes implementation)
+2. **Review plan** (Supervisor checks against KB)
+3. **Implement** (Engineer writes code)
+4. **Review code** (Supervisor checks quality)
+5. **Approve** (Architect final gate)
+6. **Commit** (atomic git commit)
+
+Check `engineering/sprints/HELLO-S03/HELLO-S03-T01/` for all artifacts.
+
+### Retrospective
+```bash
+/retrospective HELLO-S03
+```
+
+Forge analyzes sprint, updates KB with learnings.
+
+## 🐛 Report a Complex Bug (5 minutes)
+
+Tell Claude:
+> "There's a bug. When I run `hello Alice --count 5 --shout --formal`, 
+> the formal greeting isn't shouted. Only the informal greeting respects --shout."
+
+Let Claude file it naturally, or guide it:
+```bash
+/fix-bug
+```
+
+Describe the bug when prompted.
+
+Watch Forge:
+1. **Triage**: Reproduce, classify severity
+2. **Root cause**: Analyze conditional logic (formal flag checked after shout)
+3. **Propose fix**: Reorder logic or apply shout to both branches
+4. **Implement**: Write fix + test
+5. **Verify**: Run tests
+6. **KB writeback**: Add to `engineering/architecture/known-issues.md` or patterns doc
+
+Check `engineering/bugs/HELLO-B03-*/` for full trail.
+
+👉 **Key insight**: Bug artifact includes *why* bug happened, not just fix.
+Self-learning loop feeds KB → prevents similar issues.
+
+## 📚 The Knowledge Graph (3 minutes)
+
+### Start at CLAUDE.md
+Scroll to bottom of this file — auto-managed Forge KB/workflow links:
+
+```markdown
+## Forge Knowledge Base
+
+| Index | Contents |
+|-------|----------|
+| [MASTER_INDEX](engineering/MASTER_INDEX.md) | All sprints, tasks, bugs, and features |
+| [Architecture](engineering/architecture/INDEX.md) | Stack, processes, database, routing, deployment |
+| [Business Domain](engineering/business-domain/INDEX.md) | Entity model and domain concepts |
+
+Personas live in `.forge/personas/`.
+```
+
+👉 Click `MASTER_INDEX.md`
+
+### Navigate from MASTER_INDEX
+Every sprint/task/bug links to deep artifacts:
+- Click `HELLO-S01-T01` → task folder with 10+ docs
+- Click `HELLO-B01` → bug folder with triage/fix/review
+
+### KB Cross-References
+Open `engineering/architecture/processes.md`:
+```markdown
+## Build Commands
+- Install: `pip install -e .`
+- Test: `pytest`
+- Lint: (none configured)
+
+[!] No CI pipeline yet — see HELLO-S02 for planned GitHub Actions setup
+```
+
+👉 KB docs link to sprints. Self-referential knowledge graph.
+
+### Personas Reference KB
+Open `.forge/personas/engineer.md`:
+```markdown
+When implementing features, consult:
+- engineering/architecture/INDEX.md for stack details
+- engineering/business-domain/INDEX.md for entities
+- engineering/stack-checklist.md for test/build commands
+```
+
+👉 Personas know where to look. Context-efficient.
+
+## 🔧 Maintenance Commands (2 minutes)
+
+### Check for Forge Plugin Updates
+```bash
+/forge:update
+```
+
+Forge:
+1. Checks GitHub for new version
+2. Shows changelog since your version
+3. Prompts to upgrade
+4. Applies migrations if needed
+5. Suggests regenerating artifacts if breaking changes
+
+### Detect KB Drift
+```bash
+/forge:calibrate
+```
+
+Forge compares KB to codebase:
+- "architecture/processes.md mentions pytest, but no tests/ folder exists"
+- Proposes surgical patches
+- Applies approved patches
+
+### Regenerate Artifacts
+```bash
+/forge:regenerate workflows
+```
+
+Rebuilds workflows from latest meta-definitions (useful after Forge upgrade).
+
+Options: `workflows`, `personas`, `templates`, `tools`, `knowledge-base`.
+
+## 🏮 Tomoshibi — Your Forge Concierge (2 minutes)
+
+Tomoshibi (灯 — "lantern") is Forge's built-in agent. Ask it anything:
+
+### Project Status
+```bash
+/forge:ask What's the current project status?
+```
+
+Returns: active sprints, completed tasks, open bugs, recent activity.
+
+### Sprint Details
+```bash
+/forge:ask Show me all tasks in HELLO-S01
+```
+
+Returns: task list with status, estimates, dependencies.
+
+### Bug History
+```bash
+/forge:ask What bugs have been fixed?
+```
+
+Returns: bug registry with severity, status, fix dates.
+
+### Config Questions
+```bash
+/forge:ask What mode am I in? (fast or full)
+/forge:ask What version of Forge is installed?
+/forge:ask Where is the knowledge base?
+```
+
+### Command Help
+```bash
+/forge:ask How do I run a sprint?
+/forge:ask What's the difference between /run-task and /run-sprint?
+```
+
+👉 **Key insight**: Tomoshibi = instant answers without file hunting.
+No need to navigate `.forge/store/` manually.
+
+## 🔧 Troubleshooting
+
+### Something Broken? Report It
+If Forge command fails, behaves unexpectedly, or docs wrong:
+```bash
+/forge:report-bug
+```
+
+Forge interviews you, captures context (version, stack, OS), drafts GitHub issue.
+**Preferred over manual issue filing** — structured, includes diagnostic info automatically.
+
+### Permission Prompts
+Forge reads files frequently (KB docs, store). If permission prompts annoying:
+```bash
+/update-config
+```
+Ask to "allow Read tool for engineering/ and .forge/ directories"
+
+### Model Selection
+Fast mode uses Sonnet by default. For faster/cheaper:
+- **Haiku**: Good for simple tasks, reviews
+- **Sonnet**: Balanced (recommended)
+- **Opus**: Complex reasoning, large codebases
+
+Change in Claude Code settings.
+
+### "Command not found: /sprint-intake"
+Commands generated per-project. If missing:
+```bash
+/forge:regenerate commands
+```
+
+If still broken: `/forge:report-bug` (command generation may be broken)
+
+### Forge Already Initialized Error
+Projects in testbench pre-initialized. Don't run `/forge:init` again.
+Check `.forge/config.json` to verify.
+
+### KB Drift (Docs out of sync with code)
+```bash
+/forge:calibrate
+```
+Detects drift, proposes patches.
+
+Or:
+```bash
+/quiz
+```
+Interactive Q&A to verify KB accuracy, patch gaps.
+
+### Fast Mode vs Full Mode
+Testbench projects in fast mode (lazy-build). To see all artifacts upfront:
+```bash
+/forge:materialize
+```
+Generates all stubs (workflows, personas, skills).
+
+Or promote to full mode:
+```bash
+/forge:config mode full
+/forge:regenerate workflows
+```
+
 <!-- forge-kb-links: managed by Forge — do not edit manually -->
 ## Forge Knowledge Base
 
