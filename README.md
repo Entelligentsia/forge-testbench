@@ -52,26 +52,33 @@ cd hello/
 /forge:init --fast
 ```
 
-**Fast mode recommended** (2 min lazy-build vs 12 min full upfront).
+**Fast mode recommended** (~2-4 min lazy-build vs ~10-15 min full upfront).
 
-Watch Forge:
+Watch Forge run 12 phases (fast mode runs 7, defers 5 to first use):
 1. **Discover**: Scans codebase (stack, processes, database, routing, testing)
 2. **Marketplace Skills**: Recommends skills for your stack
-3. **Knowledge Base**: Generates `engineering/` (architecture, entities, stack-checklist)
-4. **Personas**: Creates project-specific Engineer, Supervisor, Architect, etc.
-5. **Skills**: Generates agent skills
-6. **Templates**: Creates plan/review/retro templates
-7. **Workflows**: Generates 15+ workflows (plan, implement, review, fix-bug, etc.)
-8. **Orchestration**: Assembles task pipeline
+3. **Knowledge Base**: Creates skeleton (MASTER_INDEX + empty dirs)
+4. **Personas**: [DEFERRED to first workflow use]
+5. **Skills**: [DEFERRED to first workflow use]
+6. **Templates**: [DEFERRED to first workflow use]
+7. **Workflows**: Creates 18 self-materializing workflow stubs
+8. **Orchestration**: [DEFERRED to first workflow use]
 9. **Commands**: Creates project-specific slash commands (e.g., `/hello:fix-bug`)
-10. **Tools**: Generates collate, validate-store, seed-store scripts (in your language)
+10. **Tools**: Copies validation schemas
 11. **Smoke Test**: Validates everything wired correctly
-12. **Tomoshibi**: Forge concierge ready
+12. **Tomoshibi**: Links KB to CLAUDE.md
+
+**User prompts during init**:
+- KB folder name (default: `engineering/`, can customize)
+- Permissions for creating `.claude/commands/` directory
 
 After init completes:
-- `.forge/` directory created (config, workflows, personas, store)
-- `engineering/` directory created (KB, ready for sprints/bugs)
-- Project-specific commands available (type `/` to see namespaced commands: `/hello:*`)
+- `.forge/` directory created (config, workflows stubs, schemas, store)
+- KB directory created (skeleton with stub docs)
+- Project-specific commands available (type `/hello:` to see 14 commands)
+- First workflow invocation triggers ~1-2 min materialization
+
+**Want to see initialized state?** Check branch `forge-initialized` for complete artifacts.
 
 ### 6. Verify Setup
 ```bash
@@ -79,39 +86,57 @@ After init completes:
 # forge@skillforge should be enabled
 
 ls .forge/
-# Should see: config.json, personas/, workflows/, store/, ...
+# Should see: config.json, workflows/, schemas/, store/
 
-ls engineering/
-# Should see: architecture/, business-domain/, stack-checklist.md
+ls engineering/  # or custom KB folder name you chose
+# Should see: MASTER_INDEX.md, architecture/, business-domain/, sprints/, bugs/
 
-# Discover project commands: Type / and look for namespace
-# hello/ → /hello:* commands (e.g., /hello:fix-bug, /hello:plan-task)
-# cartographer/ → /cart:* commands
-# emberglow/ → /ember:* commands  
-# spectral/ → /spectral:* commands
+# Discover project commands: Type /hello: in prompt
+# Should see 14 commands autocomplete (sprint-intake, plan, implement, etc.)
 ```
 
-### 7. Explore Generated Artifacts
+### 7. Explore Generated Artifacts (Fast Mode)
 
-Open `engineering/MASTER_INDEX.md` — currently empty (no sprints/tasks/bugs yet).
+**Fast mode creates stubs** — full content materializes on first workflow use.
 
-Open `.forge/personas/engineer.md`:
-- Project-specific: "You are implementing features for hello, a minimal CLI greeter"
-- Stack-aware: "Uses click for CLI parsing, pytest for testing"
-- KB-linked: References `engineering/` docs for context
+Open `engineering/MASTER_INDEX.md`:
+```markdown
+# Master Index
 
-Open `.forge/workflows/fix_bug.md`:
-- Phase 1: Triage
-- Phase 2: Root cause analysis
-- Phase 3: Propose fix
-- Phase 4: Implement + test
-- Phase 5: KB writeback (self-learning!)
+<!-- forge-fast-stub -->
 
-Open `engineering/architecture/processes.md`:
-- Build/test/lint commands discovered from codebase
-- Stack details (Python 3.11, click, pytest)
+## Domain Entities
+<!-- Will populate on materialization -->
 
-👉 **Key insight**: All generated from 26-line Python file. Not templates.
+## Architecture
+- [Stack](architecture/stack.md)
+- [Processes](architecture/processes.md)
+...
+```
+
+Open `.forge/workflows/plan_task.md`:
+```markdown
+<!-- FORGE FAST-MODE STUB — will self-replace on first use -->
+
+# Workflow: plan_task (fast-mode stub)
+
+Before doing any task work, materialise this workflow and its dependencies:
+1. Read lazy-materialize.md
+2. Re-read this file (now replaced with real workflow)
+3. Execute real workflow
+```
+
+Open `.forge/config.json` — project config:
+```json
+{
+  "project": { "prefix": "HELLO", "name": "hello" },
+  "stack": { "primary": "Python", "version": "3.11+", "frameworks": ["click"] },
+  "paths": { "engineering": "engineering", "store": ".forge/store" },
+  "mode": "fast"
+}
+```
+
+👉 **Key insight**: Forge discovered stack from 26-line Python file. Not templates.
 
 ### 8. Create Your First Sprint (Copy-Paste Prompt)
 

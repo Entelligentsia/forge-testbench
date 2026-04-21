@@ -21,71 +21,99 @@ hello Alice --count 3   # repeat
 
 - `hello.py`: `--shout` flag does not work — `greeting.upper` should be `greeting.upper()`
 
-## 🔍 Take the Tour (5 minutes)
+## 🔍 Post-Init Tour (5 minutes)
 
-Forge generated all this from a 26-line Python file. Explore:
+After running `/forge:init --fast`, explore what Forge created from a 26-line Python file.
 
-### 1. Master Index
-Open `engineering/MASTER_INDEX.md` — registry of all sprints, tasks, bugs.
-- 2 sprints (S01 active, S02 planning)
-- 2 bugs (both fixed, full artifacts)
-- 1/2 tasks complete in S01
+**Note**: This tour shows artifacts after init completes. Your fresh init creates **stubs** that materialize on first workflow use.
 
-### 2. Bug Artifacts (Self-Learning in Action)
-Open `engineering/bugs/HELLO-B01-shout-flag-no-effect/`
-- `INDEX.md`: Bug summary
-- `BUG_FIX_PLAN.md`: Fix strategy
-- `CODE_REVIEW.md`: Supervisor review
-- `PROGRESS.md`: Implementation log
+### 1. Master Index (Fresh Init State)
+Open `hello-project-knowledge/MASTER_INDEX.md`:
+```markdown
+# Master Index
 
-👉 **Key insight**: Forge documented *why* bug happened, not just the fix.
-Root cause feeds KB → prevents similar bugs later.
+<!-- forge-fast-stub -->
 
-### 3. Sprint Artifacts
-Open `engineering/sprints/HELLO-S01/HELLO-S01-T01/`
-- `PLAN.md`: Implementation plan
-- `PLAN_REVIEW.md`: Supervisor plan review
-- `CODE_REVIEW.md`: Supervisor code review
-- `ARCHITECT_APPROVAL.md`: Final approval before commit
-- `COST_REPORT.md`: Token usage breakdown
+## Domain Entities
+<!-- Will be populated when the KB is fully generated -->
+
+## Architecture
+- [Stack](architecture/stack.md)
+- [Processes](architecture/processes.md)
+...
+```
+
+Empty initially. Populates as you run sprints/tasks/bugs.
+
+**Want to see populated version?** Check branch `forge-initialized` in repo.
+
+### 2. Config
+Open `.forge/config.json`:
+```json
+{
+  "project": { "prefix": "HELLO", "name": "hello" },
+  "stack": { "primary": "Python", "version": "3.11+", "frameworks": ["click"] },
+  "commands": { "build": "pip install -e .", "test": null },
+  "mode": "fast"
+}
+```
+
+👉 **Key insight**: Forge discovered stack details automatically. No manual config.
+
+### 3. Workflow Stubs
+Open `.forge/workflows/fix_bug.md`:
+```markdown
+<!-- FORGE FAST-MODE STUB — will self-replace on first use -->
+
+Before doing any bug fix work, materialise this workflow:
+1. Read lazy-materialize.md
+2. Re-read this file (replaced with real workflow)
+3. Execute real workflow
+```
+
+Stubs self-materialize when invoked (~1-2 min first use).
+
+### 4. Commands
+List generated commands:
+```bash
+ls .claude/commands/hello/
+```
+
+14 commands created:
+- `sprint-intake.md`, `sprint-plan.md`
+- `plan.md`, `review-plan.md`, `implement.md`, `review-code.md`, `approve.md`
+- `commit.md`, `fix-bug.md`
+- `run-task.md`, `run-sprint.md`
+- `collate.md`, `retrospective.md`, `quiz-agent.md`
+
+Type `/hello:` in Claude Code prompt → autocomplete shows all commands.
+
+👉 **Key insight**: Commands namespace by project. No collision with other projects.
+
+### 5. Populated Artifacts (After Running Workflows)
+
+Once you run tasks/sprints/bugs, KB fills with rich artifacts:
+
+**Example bug artifacts** (see `forge-initialized` branch):
+- `hello-project-knowledge/bugs/HELLO-B01-shout-flag-no-effect/`
+  - `INDEX.md`: Bug summary
+  - `BUG_FIX_PLAN.md`: Fix strategy
+  - `CODE_REVIEW.md`: Supervisor review
+  - `PROGRESS.md`: Implementation log
+
+👉 **Key insight**: Forge documents *why* bug happened, not just fix. Root cause feeds KB.
+
+**Example sprint artifacts** (see `forge-initialized` branch):
+- `hello-project-knowledge/sprints/HELLO-S01/HELLO-S01-T01/`
+  - `PLAN.md`: Implementation plan
+  - `PLAN_REVIEW.md`: Supervisor review
+  - `CODE_REVIEW.md`: Code review
+  - `ARCHITECT_APPROVAL.md`: Final gate
+  - `COST_REPORT.md`: Token usage
 
 👉 **Key insight**: Multi-stage review (plan → code → architect). Not just "ship it."
 
-### 4. Knowledge Base
-Open `engineering/architecture/INDEX.md`
-- Stack: Python 3.11, click CLI, pytest
-- Processes: pip install -e ., pytest, no CI yet
-- Routing: Single CLI entry point (no API)
-
-Open `engineering/business-domain/INDEX.md`
-- Entities: (none — too simple)
-- Domain: CLI greeter (no complex domain model)
-
-👉 **Key insight**: Forge adapted to minimal project. No forced abstractions.
-
-### 5. Personas
-Open `.forge/personas/engineer.md`
-- Project-specific: "You are implementing features for hello, a minimal CLI greeter"
-- Stack-aware: "Uses click for CLI parsing, pytest for testing"
-- KB-linked: References engineering/ docs for context
-
-Open `.forge/personas/supervisor.md`
-- Review criteria: "Check click.echo usage, pytest test coverage"
-- Project conventions: "Single-file design, no external dependencies"
-
-👉 **Key insight**: Not generic "Engineer" persona. Tailored to this project.
-
-### 6. Workflows
-Open `.forge/workflows/fix_bug.md`
-- Phase 1: Triage (reproduce, classify severity)
-- Phase 2: Root cause analysis
-- Phase 3: Propose fix
-- Phase 4: Implement + test
-- Phase 5: KB writeback (self-learning!)
-
-👉 **Key insight**: Workflows reference personas by name, KB docs by path.
-
-### 7. Forge Itself Dogfoods This
+### 6. Forge Itself Dogfoods This
 Forge uses its own bug workflow. Hit issue?
 ```bash
 /forge:report-bug
@@ -424,9 +452,9 @@ Or promote to full mode:
 
 | Index | Contents |
 |-------|----------|
-| [MASTER_INDEX](engineering/MASTER_INDEX.md) | All sprints, tasks, bugs, and features |
-| [Architecture](engineering/architecture/INDEX.md) | Stack, processes, database, routing, deployment |
-| [Business Domain](engineering/business-domain/INDEX.md) | Entity model and domain concepts |
+| [MASTER_INDEX](hello-project-knowledge/MASTER_INDEX.md) | All sprints, tasks, bugs, and features |
+| [Architecture](hello-project-knowledge/architecture/INDEX.md) | Stack, processes, database, routing, deployment |
+| [Business Domain](hello-project-knowledge/business-domain/INDEX.md) | Entity model and domain concepts |
 
 Personas live in `.forge/personas/`.
 <!-- /forge-kb-links -->
