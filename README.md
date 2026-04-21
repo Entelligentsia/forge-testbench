@@ -1,6 +1,97 @@
 # forge-testbench
 
-Four pristine CLI projects for hands-on Forge demonstration.
+> **You are on the `forge-initialized` branch** — Forge artifacts after init + first sprint intake.
+> To start from scratch (pristine, no Forge): switch to [`main`](../../tree/main).
+
+Four CLI projects demonstrating Forge SDLC at different stages.
+
+## What This Branch Shows
+
+This branch captures the `hello/` project after two Forge milestones:
+
+1. **`/forge:init --fast`** — Forge analyzed the 26-line Python greeter and generated:
+   - `.forge/config.json` — project config (stack auto-detected)
+   - `.forge/workflows/` — 18 workflow stubs (self-materialize on first use)
+   - `.forge/schemas/` — JSON validation schemas
+   - `.claude/commands/hello/` — 14 project-scoped slash commands
+   - `hello-project-knowledge/MASTER_INDEX.md` — KB skeleton
+
+2. **`/hello:sprint-intake`** (first workflow invocation, lazy-materialized):
+   - `hello-project-knowledge/architecture/stack.md` — generated from codebase
+   - `hello-project-knowledge/sprints/HELLO-S01/SPRINT_REQUIREMENTS.md` — sprint requirements
+   - `.forge/workflows/architect_sprint_intake.md` — stub replaced with full workflow
+   - `.forge/personas/product-manager.md` — materialized on first use
+   - `.forge/skills/architect-skills.md`, `generic-skills.md`
+   - `.forge/templates/SPRINT_REQUIREMENTS_TEMPLATE.md`, `SPRINT_MANIFEST_TEMPLATE.md`
+
+Sprint HELLO-S01 is in `planning` status — requirements captured, sprint plan not yet run.
+
+## Navigate the Artifacts
+
+### Start Here
+```
+hello/
+├── .forge/
+│   ├── config.json                    ← auto-detected stack config
+│   ├── workflows/                     ← 18 workflows (stubs → full on first use)
+│   │   └── architect_sprint_intake.md ← this one materialized during sprint intake
+│   ├── schemas/                       ← JSON schemas for store validation
+│   ├── personas/                      ← product-manager.md (materialized)
+│   ├── skills/                        ← architect + generic skills (materialized)
+│   └── templates/                     ← sprint requirements + manifest templates
+├── .claude/commands/hello/            ← 14 project slash commands
+└── hello-project-knowledge/
+    ├── MASTER_INDEX.md                ← KB index (stub — grows with each sprint)
+    ├── architecture/
+    │   └── stack.md                   ← generated from pyproject.toml + hello.py
+    └── sprints/
+        └── HELLO-S01/
+            └── SPRINT_REQUIREMENTS.md ← --goodbye flag requirements
+```
+
+### Key Files to Read
+
+| File | What to notice |
+|------|---------------|
+| `hello/.forge/config.json` | Stack auto-detected: Python 3.11+, click, hatchling — from 26 lines of code |
+| `hello/.forge/workflows/architect_sprint_intake.md` | Full workflow (was a stub before first `/hello:sprint-intake` invocation) |
+| `hello/.forge/workflows/fix_bug.md` | Still a stub — materializes on first `/hello:fix-bug` |
+| `hello/hello-project-knowledge/architecture/stack.md` | KB doc generated from codebase scan |
+| `hello/hello-project-knowledge/sprints/HELLO-S01/SPRINT_REQUIREMENTS.md` | Requirements with acceptance criteria, edge cases, out-of-scope |
+| `hello/.claude/commands/hello/` | 14 project-scoped commands (`/hello:sprint-plan`, `/hello:fix-bug`, etc.) |
+
+### Commands Available (type `/hello:` in Claude Code)
+
+After this init, these slash commands work in the `hello/` project:
+
+```
+/hello:sprint-intake    run sprint requirements interview
+/hello:sprint-plan      break requirements into tasks
+/hello:plan             plan a single task
+/hello:implement        implement an approved plan
+/hello:review-plan      supervisor plan review
+/hello:review-code      supervisor code review
+/hello:approve          architect final gate
+/hello:commit           atomic commit after approval
+/hello:fix-bug          full bug triage → fix → verify pipeline
+/hello:run-task         full task pipeline (plan → implement → review → commit)
+/hello:run-sprint       full sprint orchestration
+/hello:collate          collate sprint artifacts
+/hello:retrospective    sprint retrospective
+/hello:quiz-agent       verify agent loaded KB correctly
+```
+
+### What's Next (Not Yet Done)
+
+HELLO-S01 is at `planning` status. To continue:
+
+```bash
+# Break requirements into tasks
+/hello:sprint-plan HELLO-S01
+
+# Run first task
+/hello:run-task HELLO-S01-T01
+```
 
 ## Why This Exists
 
@@ -8,7 +99,9 @@ Claude Code is powerful, but without structure, it re-learns your project every 
 
 **Forge** generates project-specific knowledge bases, personas, and workflows that improve with every sprint.
 
-This testbench lets you experience Forge from scratch — no pre-initialized state.
+The `main` branch is the pristine starting point. This branch is the reference view after init + first workflow use.
+
+## Quick Start (15 minutes)
 
 ## Quick Start (15 minutes)
 
@@ -78,7 +171,7 @@ After init completes:
 - Project-specific commands available (type `/hello:` to see 14 commands)
 - First workflow invocation triggers ~1-2 min materialization
 
-**Want to see initialized state?** Check branch `forge-initialized` for complete artifacts.
+**You are on `forge-initialized`** — this branch IS the initialized reference. See the artifact map at the top of this README.
 
 ### 6. Verify Setup
 ```bash

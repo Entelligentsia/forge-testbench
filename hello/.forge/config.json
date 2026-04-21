@@ -26,7 +26,7 @@
     "workflows": ".forge/workflows",
     "commands": ".claude/commands",
     "templates": ".forge/templates",
-    "forgeRoot": "/home/boni/.claude/plugins/cache/forge/forge/0.22.1"
+    "forgeRoot": "/home/boni/.claude/plugins/cache/skillforge/forge/0.24.0"
   },
   "installedSkills": [],
   "mode": "fast",
