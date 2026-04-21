@@ -78,7 +78,7 @@ After init completes:
 - Project-specific commands available (type `/hello:` to see 14 commands)
 - First workflow invocation triggers ~1-2 min materialization
 
-**Want to see initialized state?** Check branch `forge-initialized` for complete artifacts.
+**Want to see initialized state?** Switch to [`forge-initialized`](https://github.com/Entelligentsia/forge-testbench/tree/forge-initialized) — artifacts after `/forge:init --fast` + first sprint intake.
 
 ### 6. Verify Setup
 ```bash
