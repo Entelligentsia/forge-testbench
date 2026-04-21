@@ -71,7 +71,7 @@ Watch Forge:
 After init completes:
 - `.forge/` directory created (config, workflows, personas, store)
 - `engineering/` directory created (KB, ready for sprints/bugs)
-- Project-specific commands available (`/help` to list)
+- Project-specific commands available (type `/` to see namespaced commands: `/hello:*`)
 
 ### 6. Verify Setup
 ```bash
@@ -84,8 +84,11 @@ ls .forge/
 ls engineering/
 # Should see: architecture/, business-domain/, stack-checklist.md
 
-/help
-# Look for project-specific commands (e.g., /hello:fix-bug)
+# Discover project commands: Type / and look for namespace
+# hello/ → /hello:* commands (e.g., /hello:fix-bug, /hello:plan-task)
+# cartographer/ → /cart:* commands
+# emberglow/ → /ember:* commands  
+# spectral/ → /spectral:* commands
 ```
 
 ### 7. Explore Generated Artifacts
@@ -307,8 +310,8 @@ Scan installed plugins yourself:
 ### Project Commands Missing (/hello:fix-bug)
 After `/forge:init`, check:
 ```bash
-/help
-# Look for project-specific commands
+# Type / in Claude Code to see available commands
+# Look for project-specific namespace:
 
 ls .claude/commands/
 # Should see generated command files

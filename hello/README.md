@@ -48,7 +48,7 @@ Fast mode recommended (2 min). Watch 12 phases execute.
 After init:
 - `.forge/` created (config, workflows, personas, store)
 - `engineering/` created (architecture, entities, stack-checklist)
-- Project commands available (check `/help`)
+- Project commands available (type `/` to see `/hello:*` namespace)
 
 ### Step 2: Explore Generated Artifacts
 
@@ -223,18 +223,43 @@ Instant answers from `.forge/store/` and `engineering/`.
 
 ### Step 8: Check Commands
 
-```bash
-/help
-```
+Type `/` in Claude Code prompt to see command list.
 
 Look for:
 - Forge plugin commands (`/forge:init`, `/forge:health`, `/forge:ask`, etc.)
-- Project-specific commands (`/hello:fix-bug`, `/hello:*`, etc.)
+- Project-specific commands (`/hello:*` namespace — e.g., `/hello:fix-bug`, `/hello:plan-task`)
 
 If project commands missing:
 ```bash
 /forge:regenerate commands
 ```
+
+## Commands Reference
+
+After init, type `/` in Claude Code to see:
+
+**Forge plugin commands:**
+- `/forge:init` — Initialize Forge SDLC
+- `/forge:health` — Check KB health
+- `/forge:ask` — Ask Tomoshibi (concierge)
+- `/forge:config` — Inspect/change config
+- `/forge:update` — Check for plugin updates
+- `/forge:calibrate` — Detect KB drift
+- `/forge:regenerate` — Rebuild artifacts
+- `/forge:report-bug` — File structured bug report
+
+**Project-specific commands (hello/ example):**
+- `/hello:fix-bug` — Bug workflow
+- `/hello:plan-task` — Plan task
+- `/hello:implement-plan` — Implement plan
+- (More commands generated — type `/hello:` to see all)
+
+**Generic Forge commands (work in any Forge project):**
+- `/sprint-intake` — Capture sprint requirements
+- `/sprint-plan` — Break down into tasks
+- `/run-task` — Execute single task
+- `/run-sprint` — Execute full sprint
+- `/retrospective` — Sprint retrospective
 
 ## What You Experienced
 
@@ -278,7 +303,7 @@ Forge operates on current working directory. Wrong directory = wrong project.
 ### Commands Missing
 After init, check:
 ```bash
-/help
+# Type / in Claude Code to see available commands
 ls .claude/commands/
 ```
 
