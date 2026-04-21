@@ -1,8 +1,10 @@
-# Forge-generated (users create these)
-.forge/
-engineering/
+# Forge-generated (users create these) — on main branch only
+# forge-initialized branch tracks these artifacts deliberately
 
-# Claude Code
+# Forge event files (ephemeral, not for reference)
+.forge/store/events/**/
+
+# Claude Code (user-local only)
 .claude/
 
 # Environment

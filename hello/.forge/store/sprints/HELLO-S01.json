@@ -1,0 +1,8 @@
+{
+  "sprintId": "HELLO-S01",
+  "title": "Add --goodbye flag",
+  "goal": "Add a --goodbye flag to the hello CLI so users can emit a farewell greeting",
+  "status": "planning",
+  "taskIds": [],
+  "createdAt": "2026-04-21T00:00:00Z"
+}

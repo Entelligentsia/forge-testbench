@@ -1,0 +1,39 @@
+{
+  "files": {
+    ".forge/templates/SPRINT_REQUIREMENTS_TEMPLATE.md": {
+      "hash": "sha256:7e729ecb367abcca49893a5118122b3f49d74ba0a68c671729d327b2fe5718bb",
+      "generatedAt": "2026-04-21T09:02:30.497Z",
+      "generatedByVersion": "0.24.0"
+    },
+    "hello-project-knowledge/architecture/stack.md": {
+      "hash": "sha256:07e97f7b1ad8ff0d5f57abe2630ea022c4ac2ba811d496c6636c4180fcdc7a58",
+      "generatedAt": "2026-04-21T09:02:37.629Z",
+      "generatedByVersion": "0.24.0"
+    },
+    ".forge/templates/SPRINT_MANIFEST_TEMPLATE.md": {
+      "hash": "sha256:280f3ea4b51cff445eb1a7e021688478f27718baa6e717c7a5c98a4caa1e0424",
+      "generatedAt": "2026-04-21T09:02:56.445Z",
+      "generatedByVersion": "0.24.0"
+    },
+    ".forge/personas/product-manager.md": {
+      "hash": "sha256:4a89ae54953e5bc47dd49cda5eb65dd34f7e9d0eb6e8fd881197ff866efb2f01",
+      "generatedAt": "2026-04-21T09:03:17.941Z",
+      "generatedByVersion": "0.24.0"
+    },
+    ".forge/skills/architect-skills.md": {
+      "hash": "sha256:9786608ea5bd6e31baf3b163f4dfb26d2f4bebf74f226187010f6bc131ea7d27",
+      "generatedAt": "2026-04-21T09:04:26.504Z",
+      "generatedByVersion": "0.24.0"
+    },
+    ".forge/skills/generic-skills.md": {
+      "hash": "sha256:6b36ed056f6669bf3a49bbbc7323b1fb958b67b7691de79c6a4f8038c7a70ddd",
+      "generatedAt": "2026-04-21T09:04:35.406Z",
+      "generatedByVersion": "0.24.0"
+    },
+    ".forge/workflows/architect_sprint_intake.md": {
+      "hash": "sha256:263758aea49c28a57e85f5eff15437d42525bf7208fba86f2e0656011b77689f",
+      "generatedAt": "2026-04-21T09:09:36.193Z",
+      "generatedByVersion": "0.24.0"
+    }
+  }
+}
