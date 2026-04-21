@@ -2,5 +2,5 @@ node_modules/
 dist/
 *.js.map
 .env
-.forge/
-engineering/
+# Forge event files only (ephemeral)
+.forge/store/events/**/

@@ -4,5 +4,5 @@ __pycache__/
 dist/
 .venv/
 .env
-.forge/
-engineering/
+# Forge event files only (ephemeral)
+.forge/store/events/**/

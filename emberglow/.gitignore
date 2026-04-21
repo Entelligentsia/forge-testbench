@@ -2,5 +2,5 @@ emberglow
 *.test
 /vendor
 .env
-.forge/
-engineering/
+# Forge event files only (ephemeral)
+.forge/store/events/**/
