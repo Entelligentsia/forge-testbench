@@ -1,0 +1,39 @@
+{
+  "version": "0.24.0",
+  "project": {
+    "prefix": "HELLO",
+    "name": "hello",
+    "description": "Minimal CLI greeter"
+  },
+  "stack": {
+    "primary": "Python",
+    "version": "3.11+",
+    "frameworks": [
+      "click"
+    ],
+    "buildSystem": "hatchling",
+    "testFramework": null
+  },
+  "commands": {
+    "test": null,
+    "build": "pip install -e .",
+    "lint": null,
+    "run": "hello"
+  },
+  "paths": {
+    "engineering": "hello-project-knowledge",
+    "store": ".forge/store",
+    "workflows": ".forge/workflows",
+    "commands": ".claude/commands",
+    "templates": ".forge/templates",
+    "forgeRoot": "/home/boni/.claude/plugins/cache/forge/forge/0.22.1"
+  },
+  "installedSkills": [],
+  "mode": "fast",
+  "calibrationBaseline": {
+    "lastCalibrated": "2026-04-21",
+    "version": "0.24.0",
+    "masterIndexHash": "6568a506a92d31ba60af6176f00ece65b1a193bed7e758d0ea6293bb5eacb9c2",
+    "sprintsCovered": []
+  }
+}
