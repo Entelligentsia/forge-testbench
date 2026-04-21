@@ -103,8 +103,6 @@ The `main` branch is the pristine starting point. This branch is the reference v
 
 ## Quick Start (15 minutes)
 
-## Quick Start (15 minutes)
-
 ### 1. Install Forge
 ```bash
 /plugin marketplace add Entelligentsia/skillforge
