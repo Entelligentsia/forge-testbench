@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import * as fs from "fs";
+import { join } from "path";
 import { save, addNode, link, load } from "../store/graph.js";
 
 vi.mock("fs", async (importOriginal) => {
@@ -44,6 +45,17 @@ describe("save()", () => {
 
     const mockedFs = vi.mocked(fs);
     expect(mockedFs.mkdirSync).toHaveBeenCalledTimes(1);
+  });
+
+  it("calls mkdirSync with the correct directory path", () => {
+    const graph = { nodes: [], edges: [] };
+    save(graph);
+
+    const mockedFs = vi.mocked(fs);
+    expect(mockedFs.mkdirSync).toHaveBeenCalledWith(
+      join(process.env.HOME ?? "~", ".cartographer"),
+      { recursive: true },
+    );
   });
 });
 
