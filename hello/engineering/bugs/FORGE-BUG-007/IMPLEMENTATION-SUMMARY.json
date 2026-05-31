@@ -1,0 +1,11 @@
+{
+  "objective": "Implement fix for FORGE-BUG-007 to ensure the --count flag is respected when combined with --formal.",
+  "key_changes": [
+    "Removed the conditional check 'if formal' in hello.py that was bypassing the loop.",
+    "Integrated formal greetings with the existing count-based iteration loop so they can repeat.",
+    "Verified correctness using multiple count values, both casual and formal formats, and with/without shouting."
+  ],
+  "verdict": "n/a",
+  "written_at": "2026-05-31T12:05:00.000Z",
+  "artifact_ref": "PROGRESS.md"
+}

@@ -8,9 +8,10 @@ import click
 @click.argument("name")
 @click.option("--count", "-n", default=1, help="Number of greetings.")
 @click.option("--shout", is_flag=True, help="SHOUT the greeting.")
-def main(name: str, count: int, shout: bool) -> None:
+@click.option("--formal", is_flag=True, help="Use a formal greeting.")
+def main(name: str, count: int, shout: bool, formal: bool) -> None:
     """Greet NAME."""
-    greeting = f"Hello, {name}!"
+    greeting = f"Greetings, {name}" if formal else f"Hello, {name}!"
     if shout:
         greeting = greeting.upper()
     for _ in range(count):
