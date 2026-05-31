@@ -4,7 +4,7 @@
 
 > Bug ID: FORGE-BUG-007
 > Severity: minor
-> Status: 🔴 reported
+> Status: ✅ fixed
 > Reported: 2026-05-31
 
 ## Bug Documents
