@@ -62,4 +62,4 @@ export function exportMarkdown(): string {
   return lines.join("\n");
 }
 
-export { load };
+export { load, save };

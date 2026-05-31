@@ -1,0 +1,19 @@
+{
+  "objective": "Reviewed CART-S01-T01 implementation (fix mkdirSync static import + verify build/test/lint gates) against PLAN.md, task prompt, and project conventions.",
+  "findings": [
+    "AC#1 SATISFIED: graph.ts:2 is a single static import including mkdirSync from 'fs' (no await import anywhere).",
+    "AC#2 SATISFIED: save() (graph.ts:13-17) is synchronous, no await, calls mkdirSync(recursive) before writeFileSync.",
+    "AC#3 SATISFIED: re-ran npm run build live -> exit 0, no TS errors; save now exported (graph.ts:65) resolving TS2459.",
+    "AC#4 SATISFIED: re-ran npm test live -> exit 0, 6/6 across 2 suites incl CART-B01 mkdirSync-before-writeFileSync regression guard.",
+    "AC#5 SATISFIED: re-ran npm run lint live -> exit 0; eslint.config.js + tseslint deps present, lint script wired.",
+    "AC#6 SATISFIED: stale graph.ts:save() / await import('fs') known-issues bullet removed from CLAUDE.md.",
+    "Architecture aligned: pure functions, no class/singleton, ESM .js imports intact, no network/DB dep.",
+    "In-bounds scope: exporting save (needed for test to compile) and adding ESLint (lint gate had no runner) serve the ACs, not creep.",
+    "All gates independently re-run by reviewer (not taken on implementer word); results match PROGRESS.md exactly.",
+    "Advisory (pre-existing, out of scope): DATA_PATH falls back to literal '~' when HOME unset (graph.ts:6,14) - future hardening candidate.",
+    "No security surface: offline CLI, no new untrusted input."
+  ],
+  "verdict": "approved",
+  "written_at": "2026-05-31T08:30:00Z",
+  "artifact_ref": "CODE_REVIEW.md"
+}

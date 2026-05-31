@@ -46,5 +46,28 @@ src/
 
 ## Known issues / in-progress
 
-- `graph.ts:save()` has a bug: `await import("fs")` inside a sync function — fix by importing `mkdirSync` at the top of the file
 - `link` resolves nodes by title; fuzzy/id lookup is on the roadmap but not yet started
+
+<!-- forge-kb-links: managed by Forge — do not edit manually -->
+## Forge Knowledge Base
+
+| Index | Contents |
+|-------|----------|
+| [MASTER_INDEX](engineering/MASTER_INDEX.md) | All sprints, tasks, bugs, and features |
+| [Architecture](engineering/architecture/INDEX.md) | Stack, processes, database, routing, deployment |
+| [Business Domain](engineering/business-domain/INDEX.md) | Entity model and domain concepts |
+
+Personas live in `.forge/personas/`.
+<!-- /forge-kb-links -->
+
+<!-- forge-workflow-links: managed by Forge — do not edit manually -->
+## Forge Workflows
+
+| Workflow | Purpose |
+|----------|---------|
+| [Plan](.forge/workflows/plan_task.md) | Research codebase → implementation plan |
+| [Implement](.forge/workflows/implement_plan.md) | Execute approved plan → code changes |
+| [Fix bug](.forge/workflows/fix_bug.md) | Triage → fix → verify |
+| [Run task](.forge/workflows/orchestrate_task.md) | Full task pipeline (plan → implement → review → commit) |
+| [Run sprint](.forge/workflows/run_sprint.md) | Full sprint orchestration |
+<!-- /forge-workflow-links -->

@@ -1,0 +1,17 @@
+{
+  "objective": "Verify mkdirSync is statically imported and save() is synchronous in graph.ts, resolve two pre-existing environment gaps (missing save export and missing ESLint installation), run npm build/test/lint gates to exit 0, and remove the stale known-issues entry from CLAUDE.md.",
+  "key_changes": [
+    "Confirmed src/store/graph.ts line 2 already has mkdirSync in top-level static import from 'fs' — AC #1 satisfied",
+    "Confirmed save() contains no await keyword — AC #2 satisfied",
+    "Exported save from graph.ts by adding it to export { load, save } — fixed TS2459 compile error in src/__tests__/graph.test.ts",
+    "Installed eslint, @typescript-eslint/eslint-plugin, @typescript-eslint/parser as devDependencies",
+    "Created eslint.config.js with minimal ESLint v9 flat config for TypeScript source files",
+    "npm run build exits 0 — no TypeScript errors — AC #3 satisfied",
+    "npm test exits 0 — 6/6 tests pass including CART-B01 regression guard — AC #4 satisfied",
+    "npm run lint exits 0 — AC #5 satisfied",
+    "Removed stale graph.ts:save() known-issues bullet from CLAUDE.md — AC #6 satisfied"
+  ],
+  "verdict": "n/a",
+  "written_at": "2026-05-31T08:22:00Z",
+  "artifact_ref": "PROGRESS.md"
+}

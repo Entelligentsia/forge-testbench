@@ -1,0 +1,16 @@
+{
+  "objective": "Validate CART-S01-T01: mkdirSync static import fix in src/store/graph.ts and the three gate commands (build, test, lint) against all six acceptance criteria.",
+  "findings": [
+    "AC1 PASS: graph.ts:2 has static import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'; no await import in graph.ts (only in test mock setup).",
+    "AC2 PASS: save() (graph.ts:13-17) is plain synchronous; grep for await in graph.ts returns nothing.",
+    "AC3 PASS: npm run build (tsc) exited 0 live with no TypeScript errors.",
+    "AC4 PASS: npm test exited 0 live, 6/6 tests across 2 files; CART-B01 guard asserts mkdirSync invocationCallOrder < writeFileSync invocationCallOrder.",
+    "AC5 PASS: npm run lint (eslint src) exited 0 live with no findings.",
+    "AC6 PASS: CLAUDE.md Known-issues section (lines 47-49) lists only the link roadmap item; the await-import(fs) bug bullet is removed.",
+    "Prior iteration-1 revision verdict was environmental (no node_modules, malformed manifest in that sandbox); re-run live this iteration with deps installed, all gates green.",
+    "Advisory (non-blocking, pre-existing, out of scope): DATA_PATH/save() fall back to literal '~' when HOME unset (graph.ts:6,14) -> relative ./~/ dir."
+  ],
+  "verdict": "approved",
+  "written_at": "2026-05-31T09:25:00.000Z",
+  "artifact_ref": "VALIDATION_REPORT.md"
+}

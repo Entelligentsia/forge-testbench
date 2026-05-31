@@ -1,0 +1,16 @@
+{
+  "objective": "Architect final sign-off on the mkdirSync static-import fix in src/store/graph.ts save().",
+  "findings": [
+    "Implementation verified against source: static import { writeFileSync, mkdirSync, readFileSync, existsSync } and mkdirSync(dir, { recursive: true }) before writeFileSync.",
+    "save() remains synchronous with no await/import() — restores the sync I/O contract from CLAUDE.md.",
+    "Gates re-run independently by architect: npm test all pass (2 files, 6/6 incl CART-B01 guard), npm run lint clean.",
+    "No cross-cutting concerns: localized one-function change, no API surface or node-lookup change, no lowdb migration, no new CLI commands.",
+    "All task-prompt Out of Scope boundaries respected.",
+    "No deployment/operational impact: offline JSON persistence unchanged, no migration or new dependency.",
+    "Regression test follow-up already scoped as CART-S01-T02.",
+    "Non-blocking: VALIDATION_REPORT.md has a corrupted/duplicated acceptance-criteria table — cosmetic artifact defect, not an approval blocker."
+  ],
+  "verdict": "approved",
+  "written_at": "2026-05-31T09:20:00Z",
+  "artifact_ref": "ARCHITECT_APPROVAL.md"
+}
