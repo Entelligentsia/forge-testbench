@@ -1,0 +1,12 @@
+{
+  "objective": "Commit the HELLO-BUG-002 fix: --shout now upper-cases formal greetings, plus a standalone regression guard.",
+  "key_changes": [
+    "hello.py:15 guard restored to 'if shout:' so shouting applies to both formal and informal greetings.",
+    "Added tests/test_shout_formal.py — standalone CliRunner regression guard (no pytest), run via 'python3 tests/test_shout_formal.py'.",
+    "Bug status transitioned in-progress -> fixed; full Path B artifact set committed (force-added past the engineering/ ignore rule).",
+    "Net hello.py diff is empty: HEAD already carried the fix; the working tree had reintroduced the bug and is now restored."
+  ],
+  "verdict": "n/a",
+  "written_at": "2026-06-01T02:46:59.000Z",
+  "artifact_ref": "PROGRESS.md"
+}
