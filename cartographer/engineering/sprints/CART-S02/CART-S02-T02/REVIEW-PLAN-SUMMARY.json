@@ -1,0 +1,19 @@
+{
+  "objective": "Review the implementation plan for CART-S02-T02: add a read-only carto stats CLI command that loads the graph, calls graphStats(), and prints pluralised node/edge counts.",
+  "key_changes": [
+    "Plan correctly scopes change to src/cli.ts only — no graph.ts modifications, no data model changes, no persistence changes",
+    "graphStats dependency on T01 is resolved — function exists and is exported in graph.ts with test coverage",
+    "Pluralisation logic (two independent ternaries) stays in cli.ts and does not leak into pure graph.ts module",
+    "Code snippet produces correct output format matching acceptance criteria: '2 nodes, 1 edge'",
+    "Security surface negligible: read-only command, no user input, no filesystem writes, no shell/eval",
+    "All project conventions satisfied: ESM .js imports, chalk.green for success, const/arrow functions, strict mode preserved",
+    "load() empty-graph default correctly leveraged for missing graph file case (prints '0 nodes, 0 edges')",
+    "No new automated tests planned — acceptable for I/O thin shell; graphStats pure logic covered by T01",
+    "Manual smoke tests cover three cases: empty graph (0/0), singular (1/0), plural (3/1)",
+    "Advisory: routing.md should be updated after implementation to document the stats command",
+    "CART-B01 save() ordering guard not relevant — stats command is read-only, no save() call"
+  ],
+  "verdict": "approved",
+  "written_at": "2026-06-03T10:33:00.000Z",
+  "artifact_ref": "PLAN_REVIEW.md"
+}

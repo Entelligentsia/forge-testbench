@@ -1,0 +1,15 @@
+{
+  "objective": "Validate CART-S02-T02 acceptance criteria: read-only carto stats CLI command loads graph, calls graphStats(), prints pluralised node/edge counts.",
+  "key_changes": [
+    "All 9 acceptance criteria verified PASS via source inspection and smoke tests",
+    "stats command registered, graphStats imported and called, pluralisation correct",
+    "Read-only confirmed: no save() call, mtime unchanged after stats invocation",
+    "chalk.green output confirmed via FORCE_COLOR=1 (ANSI \\x1b[32m)",
+    "Build/lint/test pass: 21 tests, no regressions",
+    "graph.ts not modified by T02 — only cli.ts and routing.md changed",
+    "Edge cases verified: empty graph, singular/plural, unknown flags, read-only integrity"
+  ],
+  "verdict": "approved",
+  "written_at": "2026-06-03T10:38:00Z",
+  "artifact_ref": "VALIDATION_REPORT.md"
+}

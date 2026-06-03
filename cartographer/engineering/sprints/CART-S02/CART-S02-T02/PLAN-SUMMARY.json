@@ -1,0 +1,17 @@
+{
+  "objective": "Add a read-only `carto stats` command that loads the graph, calls graphStats(), and prints pluralised node/edge counts in one line.",
+  "key_changes": [
+    "Register `.command('stats')` in cli.ts following the existing read-only pattern (like `list`)",
+    "Import `graphStats` from `./store/graph.js` alongside existing `load` import",
+    "Action handler: `load()` → `graphStats()` → two ternaries for singular/plural → `console.log(chalk.green(...))`",
+    "Pluralisation: `nodes === 1 ? 'node' : 'nodes'`, `edges === 1 ? 'edge' : 'edges'` — logic stays in cli.ts only",
+    "No flags, no arguments, no save() call — command is purely read-only",
+    "Empty/missing graph prints `0 nodes, 0 edges` via load()'s existing empty-graph default",
+    "No data model changes, no persistence changes, no graph.ts modifications",
+    "No new unit tests — pure logic covered by T01; CLI handler is I/O-only thin shell",
+    "Manual smoke-test coverage: empty graph, single node, multiple nodes and edges"
+  ],
+  "verdict": "n/a",
+  "written_at": "2026-06-03T12:00:00.000Z",
+  "artifact_ref": "PLAN.md"
+}

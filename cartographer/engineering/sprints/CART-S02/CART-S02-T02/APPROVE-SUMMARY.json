@@ -1,0 +1,26 @@
+{
+  "objective": "Final architectural sign-off on CART-S02-T02: read-only carto stats CLI command that loads the graph, calls graphStats(), and prints pluralised node/edge counts.",
+  "findings": [
+    "cli.ts owns all I/O — load() reads graph, console.log(chalk.green()) prints output; no I/O in graph.ts",
+    "graphStats() is a pure function returning {nodes, edges} — display logic (pluralisation) stays in cli.ts only",
+    "Read-only invariant confirmed: no save() call, no flags, no arguments, no filesystem writes",
+    "No new dependencies introduced — only graphStats added to existing import from ./store/graph.js",
+    "ESM .js import extensions respected throughout",
+    "Entity model unchanged — no modifications to Node, Edge, or Graph types",
+    "Offline-only deployment posture preserved — no network or database paths",
+    "graph.ts not modified by T02 — graphStats was introduced in T01 and is untouched",
+    "routing.md updated with stats documentation in three sections",
+    "All verification passes: 21 tests, clean build, clean lint",
+    "Operational impact positive for cli-ux; zero data-corruption, build-failure, or test-coverage risk"
+  ],
+  "key_changes": [
+    "Architectural sign-off confirmed: all I/O stays in cli.ts, graph.ts remains pure",
+    "Read-only stats command approved — no save() call, no filesystem writes",
+    "Pluralisation logic correctly localised to cli.ts display layer",
+    "Offline-only deployment posture preserved — no network or database dependency",
+    "No entity model changes; no cross-cutting concerns identified"
+  ],
+  "verdict": "approved",
+  "written_at": "2026-06-03T10:39:38.000Z",
+  "artifact_ref": "ARCHITECT_APPROVAL.md"
+}

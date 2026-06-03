@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import chalk from "chalk";
-import { load, addNode, link, exportMarkdown } from "./store/graph.js";
+import { load, addNode, link, exportMarkdown, graphStats } from "./store/graph.js";
 
 const program = new Command()
   .name("carto")
@@ -46,6 +46,15 @@ program
   .description("Export the map to markdown")
   .action(() => {
     console.log(exportMarkdown());
+  });
+
+program
+  .command("stats")
+  .description("Show graph statistics")
+  .action(() => {
+    const graph = load();
+    const { nodes, edges } = graphStats(graph);
+    console.log(chalk.green(`${nodes} ${nodes === 1 ? "node" : "nodes"}, ${edges} ${edges === 1 ? "edge" : "edges"}`));
   });
 
 program.parse();

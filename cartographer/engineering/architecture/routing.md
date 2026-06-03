@@ -10,6 +10,7 @@
 | `carto link <from> <to>` | Connect two existing nodes with a directed edge |
 | `carto list` | List all nodes in the graph |
 | `carto export` | Export the full graph map to Markdown |
+| `carto stats` | Show graph statistics (node and edge counts) |
 
 Entry point: `src/cli.ts` — all commands registered via `commander`.
 
@@ -39,6 +40,10 @@ No arguments or options. Reads and prints all nodes from the persisted graph.
 
 No arguments or options. Calls `exportMarkdown()` and prints to stdout.
 
+### `carto stats`
+
+No arguments or options. Reads-only command that calls `load()` followed by `graphStats()` and prints pluralised node/edge counts (e.g. `2 nodes, 1 edge`). Output uses `chalk.green`. Empty or missing graph prints `0 nodes, 0 edges` via `load()`'s existing empty-graph default.
+
 ## Error Handling
 
 - Node lookup is performed by `title` (exact, case-sensitive match).
@@ -46,6 +51,7 @@ No arguments or options. Calls `exportMarkdown()` and prints to stdout.
 - The error is caught in the `link` command's action handler and printed to stderr via `console.error` with `chalk.red` formatting.
 - `add` does not validate for duplicate titles [?]; callers should be aware that duplicate-titled nodes may be created.
 - If the graph has no nodes, `carto list` prints a human-readable hint (`No nodes yet. Try: carto add "My first idea"`) rather than an error.
+- `carto stats` is read-only: no `save()` call, no flags or arguments. Pluralisation uses two independent ternaries (`1 node` vs `0 nodes`).
 
 ## Auth Strategy
 
