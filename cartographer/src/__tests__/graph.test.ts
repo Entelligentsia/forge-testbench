@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import * as fs from "fs";
 import { join } from "path";
-import { save, addNode, link, load, exportMarkdown, graphStats } from "../store/graph.js";
+import { save, addNode, link, load, exportMarkdown, mostConnectedNode } from "../store/graph.js";
 
 vi.mock("fs", async (importOriginal) => {
   const actual = await importOriginal<typeof import("fs")>();
@@ -299,22 +299,67 @@ describe("save() content verification", () => {
   });
 });
 
-describe("graphStats()", () => {
-  it("returns { nodes: 2, edges: 1 } for a 2-node/1-edge graph", () => {
+
+describe("mostConnectedNode()", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it("returns { node: null, degree: 0 } for a graph with no edges", () => {
     const graph = {
       nodes: [
-        { id: "id-a", title: "Node A", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
-        { id: "id-b", title: "Node B", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-a", title: "Alpha", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-b", title: "Beta", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+      ],
+      edges: [],
+    };
+    const result = mostConnectedNode(graph);
+    expect(result).toEqual({ node: null, degree: 0 });
+  });
+
+  it("returns the node with highest degree (bidirectional) and its title", () => {
+    const graph = {
+      nodes: [
+        { id: "id-a", title: "A", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-b", title: "B", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-c", title: "C", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
       ],
       edges: [
         { from: "id-a", to: "id-b", label: undefined, weight: 1 },
+        { from: "id-b", to: "id-a", label: undefined, weight: 1 },
       ],
     };
-    expect(graphStats(graph)).toEqual({ nodes: 2, edges: 1 });
+    // A: 1 out + 1 in = 2
+    // B: 1 out + 1 in = 2
+    // C: 0 = 0
+    // Tie-break: first encountered (A) wins
+    const result = mostConnectedNode(graph);
+    expect(result).toEqual({ node: graph.nodes[0], degree: 2 });
   });
 
-  it("returns { nodes: 0, edges: 0 } for an empty graph", () => {
+  it("returns first-encountered node when there is a tie in degree", () => {
+    const graph = {
+      nodes: [
+        { id: "id-a", title: "X", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-b", title: "Y", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-c", title: "Z", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+      ],
+      edges: [
+        { from: "id-a", to: "id-b", label: undefined, weight: 1 },
+        { from: "id-c", to: "id-b", label: undefined, weight: 1 },
+      ],
+    };
+    // A: 1 out = 1
+    // B: 1 in from A + 1 in from C = 2
+    // C: 1 out = 1
+    // B has highest degree (2)
+    const result = mostConnectedNode(graph);
+    expect(result).toEqual({ node: graph.nodes[1], degree: 2 });
+  });
+
+  it("handles an empty graph (no nodes, no edges)", () => {
     const graph = { nodes: [], edges: [] };
-    expect(graphStats(graph)).toEqual({ nodes: 0, edges: 0 });
+    const result = mostConnectedNode(graph);
+    expect(result).toEqual({ node: null, degree: 0 });
   });
 });
