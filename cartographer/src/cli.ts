@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import chalk from "chalk";
-import { load, addNode, link, exportMarkdown, graphStats, mostConnectedNode } from "./store/graph.js";
+import { load, addNode, link, exportMarkdown, graphStats } from "./store/graph.js";
 
 const program = new Command()
   .name("carto")
@@ -54,12 +54,7 @@ program
   .action(() => {
     const graph = load();
     const { nodes, edges } = graphStats(graph);
-    const mostConnected = mostConnectedNode(graph);
-    const degreeLine = mostConnected.node
-      ? chalk.cyan(`most-connected: ${mostConnected.node.title} (degree ${mostConnected.degree})`)
-      : chalk.gray("(no edges)");
     console.log(chalk.green(`${nodes} ${nodes === 1 ? "node" : "nodes"}, ${edges} ${edges === 1 ? "edge" : "edges"}`));
-    console.log(degreeLine);
   });
 
 program.parse();
