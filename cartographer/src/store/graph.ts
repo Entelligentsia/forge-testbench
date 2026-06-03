@@ -62,4 +62,8 @@ export function exportMarkdown(): string {
   return lines.join("\n");
 }
 
+export function graphStats(graph: Graph): { nodes: number; edges: number } {
+  return { nodes: graph.nodes.length, edges: graph.edges.length };
+}
+
 export { load, save };

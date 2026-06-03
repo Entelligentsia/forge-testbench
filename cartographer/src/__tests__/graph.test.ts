@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import * as fs from "fs";
 import { join } from "path";
-import { save, addNode, link, load, exportMarkdown } from "../store/graph.js";
+import { save, addNode, link, load, exportMarkdown, graphStats } from "../store/graph.js";
 
 vi.mock("fs", async (importOriginal) => {
   const actual = await importOriginal<typeof import("fs")>();
@@ -296,5 +296,25 @@ describe("save() content verification", () => {
     expect(savedNode.tags).toEqual(["a", "b"]);
     expect(savedNode.createdAt).toBe("2025-06-01T00:00:00.000Z");
     expect(savedNode.updatedAt).toBe("2025-06-01T00:00:00.000Z");
+  });
+});
+
+describe("graphStats()", () => {
+  it("returns { nodes: 2, edges: 1 } for a 2-node/1-edge graph", () => {
+    const graph = {
+      nodes: [
+        { id: "id-a", title: "Node A", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-b", title: "Node B", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+      ],
+      edges: [
+        { from: "id-a", to: "id-b", label: undefined, weight: 1 },
+      ],
+    };
+    expect(graphStats(graph)).toEqual({ nodes: 2, edges: 1 });
+  });
+
+  it("returns { nodes: 0, edges: 0 } for an empty graph", () => {
+    const graph = { nodes: [], edges: [] };
+    expect(graphStats(graph)).toEqual({ nodes: 0, edges: 0 });
   });
 });
