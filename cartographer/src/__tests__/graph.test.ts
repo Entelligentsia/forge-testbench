@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import * as fs from "fs";
 import { join } from "path";
-import { save, addNode, link, load, exportMarkdown, graphStats } from "../store/graph.js";
+import { save, addNode, link, load, exportMarkdown, graphStats, mostConnectedNode } from "../store/graph.js";
 
 vi.mock("fs", async (importOriginal) => {
   const actual = await importOriginal<typeof import("fs")>();
@@ -316,5 +316,56 @@ describe("graphStats()", () => {
   it("returns { nodes: 0, edges: 0 } for an empty graph", () => {
     const graph = { nodes: [], edges: [] };
     expect(graphStats(graph)).toEqual({ nodes: 0, edges: 0 });
+  });
+});
+
+describe("mostConnectedNode()", () => {
+  it("returns { node: null, degree: 0 } sentinel when no edges exist", () => {
+    const graph = {
+      nodes: [
+        { id: "id-a", title: "A", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+      ],
+      edges: [],
+    };
+    expect(mostConnectedNode(graph)).toEqual({ node: null, degree: 0 });
+  });
+
+  it("counts bidirectional degree for a node involved in an edge", () => {
+    const graph = {
+      nodes: [
+        { id: "id-a", title: "A", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-b", title: "B", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+      ],
+      edges: [
+        { from: "id-a", to: "id-b", label: undefined, weight: 1 },
+      ],
+    };
+    // A has degree 1 (outgoing), B has degree 1 (incoming). First-encountered wins.
+    const result = mostConnectedNode(graph);
+    expect(result.node?.title).toBe("A");
+    expect(result.degree).toBe(1);
+  });
+
+  it("first-encountered node wins tie-break when degrees are equal", () => {
+    const graph = {
+      nodes: [
+        { id: "id-a", title: "A", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-b", title: "B", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-c", title: "C", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+      ],
+      edges: [
+        { from: "id-a", to: "id-b", label: undefined, weight: 1 },
+        { from: "id-c", to: "id-b", label: undefined, weight: 1 },
+      ],
+    };
+    // A and C have degree 1, B has degree 2. B should win.
+    const result = mostConnectedNode(graph);
+    expect(result.node?.title).toBe("B");
+    expect(result.degree).toBe(2);
+  });
+
+  it("returns null and zero for an empty graph", () => {
+    const graph = { nodes: [], edges: [] };
+    expect(mostConnectedNode(graph)).toEqual({ node: null, degree: 0 });
   });
 });

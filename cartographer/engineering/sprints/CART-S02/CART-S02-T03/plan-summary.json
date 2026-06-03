@@ -1,0 +1,12 @@
+{
+  "objective": "Add a pure helper to compute the most-connected node from graph edges and extend carto stats to print its title",
+  "key_changes": [
+    "Add mostConnectedNode() pure helper in src/store/graph.ts (counts from/to incidences, returns sentinel for empty graph)",
+    "Extend carto stats CLI action to print most-connected node title alongside existing counts",
+    "Add vitest unit tests for degree counting, tie-break, and empty-graph sentinel",
+    "Tie-break: first-encountered wins; empty graph returns {node: null, degree: 0}"
+  ],
+  "verdict": "n/a",
+  "written_at": "2026-06-03T00:00:00.000Z",
+  "artifact_ref": "PLAN.md"
+}

@@ -1,0 +1,13 @@
+{
+  "objective": "Add mostConnectedNode() pure helper to graph.ts and extend carto stats CLI to show most connected node title and degree",
+  "key_changes": [
+    "mostConnectedNode(graph) returns { node: Node | null, degree: number } in src/store/graph.ts",
+    "Count both incoming and outgoing edges bidirectionally for degree calculation",
+    "Return { node: null, degree: 0 } sentinel when no edges exist",
+    "carto stats CLI extended to print most connected node or (no edges)",
+    "4 vitest tests: no-edges sentinel, bidirectional degree, first-encountered tie-break, empty graph"
+  ],
+  "verdict": "n/a",
+  "written_at": "2026-06-03T22:22:01.000Z",
+  "artifact_ref": "PLAN.md"
+}

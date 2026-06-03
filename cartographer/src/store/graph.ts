@@ -66,4 +66,32 @@ export function graphStats(graph: Graph): { nodes: number; edges: number } {
   return { nodes: graph.nodes.length, edges: graph.edges.length };
 }
 
+export function mostConnectedNode(graph: Graph): { node: Node | null; degree: number } {
+  if (graph.edges.length === 0) {
+    return { node: null, degree: 0 };
+  }
+
+  const degreeMap = new Map<string, number>();
+
+  for (const edge of graph.edges) {
+    // Bidirectional degree: each edge contributes +1 to both nodes
+    // regardless of direction, counting both as connected
+    degreeMap.set(edge.from, (degreeMap.get(edge.from) ?? 0) + 1);
+    degreeMap.set(edge.to, (degreeMap.get(edge.to) ?? 0) + 1);
+  }
+
+  let maxDegree = -1;
+  let maxNode: Node | null = null;
+
+  for (const node of graph.nodes) {
+    const degree = degreeMap.get(node.id) ?? 0;
+    if (degree > maxDegree) {
+      maxDegree = degree;
+      maxNode = node;
+    }
+  }
+
+  return { node: maxNode, degree: maxDegree };
+}
+
 export { load, save };
