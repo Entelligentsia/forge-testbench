@@ -42,6 +42,17 @@ export function link(fromTitle: string, toTitle: string, label?: string): Edge {
   return edge;
 }
 
+export function removeNode(title: string): { node: Node; edgeCount: number } | null {
+  const graph = load();
+  const node = graph.nodes.find((n) => n.title === title);
+  if (!node) return null;
+  graph.nodes = graph.nodes.filter((n) => n.id !== node.id);
+  const removedEdges = graph.edges.filter((e) => e.from === node.id || e.to === node.id);
+  graph.edges = graph.edges.filter((e) => e.from !== node.id && e.to !== node.id);
+  save(graph);
+  return { node, edgeCount: removedEdges.length };
+}
+
 export function exportMarkdown(): string {
   const graph = load();
   const lines: string[] = ["# Knowledge Map\n"];

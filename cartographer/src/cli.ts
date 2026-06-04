@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import chalk from "chalk";
-import { load, addNode, link, exportMarkdown, graphStats, mostConnectedNode } from "./store/graph.js";
+import { load, addNode, link, removeNode, exportMarkdown, graphStats, mostConnectedNode } from "./store/graph.js";
 
 const program = new Command()
   .name("carto")
@@ -15,6 +15,19 @@ program
   .action((title: string, opts: { body: string; tags: string }) => {
     const node = addNode(title, opts.body, opts.tags ? opts.tags.split(",") : []);
     console.log(chalk.green(`✓ Added: ${node.title} [${node.id.slice(0, 8)}]`));
+  });
+
+program
+  .command("rm <title>")
+  .description("Remove a node and all its edges from the map")
+  .action((title: string) => {
+    const result = removeNode(title);
+    if (result) {
+      console.log(chalk.green(`✓ Removed "${title}" and ${result.edgeCount} edge(s)`));
+    } else {
+      console.error(chalk.red(`✗ Node not found: "${title}"`));
+      process.exit(1);
+    }
   });
 
 program
