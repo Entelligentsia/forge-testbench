@@ -4,7 +4,7 @@
 
 > Task ID: CART-S02-T03
 > Sprint: [CART-S02](../INDEX.md)
-> Status: ✅ approved
+> Status: 📝 draft
 > Estimate: S
 
 ## Description
@@ -13,12 +13,7 @@ Nice-to-have, attempt only if T01 and T02 complete. Add a new pure helper in src
 
 ## Task Documents
 
-| Document                                    | Purpose                     |
-| ------------------------------------------- | --------------------------- |
-| [Task Prompt](TASK_PROMPT.md)               | Task definition and prompt  |
-| [Plan](PLAN.md)                             | Implementation plan         |
-| [Progress](PROGRESS.md)                     | Implementation progress log |
-| [Architect Approval](ARCHITECT_APPROVAL.md) | Architecture review         |
-| [Code Review](CODE_REVIEW.md)               | Code review                 |
-| [Validation Report](VALIDATION_REPORT.md)   | Validation results          |
+| Document                      | Purpose                    |
+| ----------------------------- | -------------------------- |
+| [Task Prompt](TASK_PROMPT.md) | Task definition and prompt |
 

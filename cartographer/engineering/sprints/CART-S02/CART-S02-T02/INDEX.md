@@ -4,7 +4,7 @@
 
 > Task ID: CART-S02-T02
 > Sprint: [CART-S02](../INDEX.md)
-> Status: ✅ approved
+> Status: 📝 draft
 > Estimate: S
 
 ## Description
@@ -13,12 +13,7 @@ Register a read-only stats command in src/cli.ts using the existing commander .c
 
 ## Task Documents
 
-| Document                                    | Purpose                     |
-| ------------------------------------------- | --------------------------- |
-| [Task Prompt](TASK_PROMPT.md)               | Task definition and prompt  |
-| [Plan](PLAN.md)                             | Implementation plan         |
-| [Progress](PROGRESS.md)                     | Implementation progress log |
-| [Architect Approval](ARCHITECT_APPROVAL.md) | Architecture review         |
-| [Code Review](CODE_REVIEW.md)               | Code review                 |
-| [Validation Report](VALIDATION_REPORT.md)   | Validation results          |
+| Document                      | Purpose                    |
+| ----------------------------- | -------------------------- |
+| [Task Prompt](TASK_PROMPT.md) | Task definition and prompt |
 

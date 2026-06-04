@@ -4,17 +4,12 @@
 
 > Task ID: CART-S03-T01
 > Sprint: [CART-S03](../INDEX.md)
-> Status: ✅ approved
+> Status: 📝 draft
 > Estimate: S
 
 ## Task Documents
 
-| Document                                    | Purpose                     |
-| ------------------------------------------- | --------------------------- |
-| [Task Prompt](TASK_PROMPT.md)               | Task definition and prompt  |
-| [Plan](PLAN.md)                             | Implementation plan         |
-| [Progress](PROGRESS.md)                     | Implementation progress log |
-| [Architect Approval](ARCHITECT_APPROVAL.md) | Architecture review         |
-| [Code Review](CODE_REVIEW.md)               | Code review                 |
-| [Validation Report](VALIDATION_REPORT.md)   | Validation results          |
+| Document                      | Purpose                    |
+| ----------------------------- | -------------------------- |
+| [Task Prompt](TASK_PROMPT.md) | Task definition and prompt |
 
