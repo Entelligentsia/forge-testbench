@@ -1,8 +1,8 @@
 {
-  "createdAt": "2026-06-04T11:47:12+00:00",
+  "createdAt": "2026-06-04T13:13:52+00:00",
   "baselineTag": "testbench/cartographer-baseline",
-  "baselineSha": "3ced9dff47b32450917d2104feffb55c76db5663",
-  "stateTgzSha256": "f67203912af8be63205648b7b70fc15235e17f8b9d0ed35ad99d139dbebede20",
+  "baselineSha": "a69aba0906baa0dcffd263abfc8efc2337482ca4",
+  "stateTgzSha256": "34cff3ed56d5ad1002c11dae355fe6545c0c626e9335c4783643d1c26e5119d8",
   "entities": {
     "sprints": {
       "CART-S01": "planning",
