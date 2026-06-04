@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import chalk from "chalk";
-import { load, addNode, link, removeNode, exportMarkdown, graphStats, mostConnectedNode } from "./store/graph.js";
+import { load, addNode, link, removeNode, exportMarkdown, graphStats, mostConnectedNode, listNodeTitles } from "./store/graph.js";
 
 const program = new Command()
   .name("carto")
@@ -51,6 +51,20 @@ program
     if (!nodes.length) { console.log("No nodes yet. Try: carto add \"My first idea\""); return; }
     for (const n of nodes) {
       console.log(chalk.bold(n.title), chalk.gray(`[${n.id.slice(0, 8)}]`), n.tags.map((t) => chalk.yellow(`#${t}`)).join(" "));
+    }
+  });
+
+program
+  .command("ls")
+  .description("List all node titles")
+  .action(() => {
+    const titles = listNodeTitles();
+    if (!titles.length) {
+      console.log(chalk.yellow("No nodes yet."));
+      return;
+    }
+    for (const title of titles) {
+      console.log(chalk.cyan(title));
     }
   });
 

@@ -44,10 +44,6 @@ describe("graph — CART-B01: mkdirSync called before writeFileSync in save()", 
 });
 
 describe("removeNode", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    mockGraph = { nodes: [], edges: [] };
-  });
 
   it("returns null when the node is not found", async () => {
     const { removeNode } = await import("./graph.js");
@@ -107,5 +103,34 @@ describe("removeNode", () => {
     const lastGraph = JSON.parse(calls[calls.length - 1]) as typeof mockGraph;
     expect(lastGraph.nodes.find((n) => n.id === nodeA.id)).toBeUndefined();
     expect(lastGraph.edges.filter((e) => e.from === nodeA.id || e.to === nodeA.id)).toHaveLength(0);
+  });
+});
+describe("listNodeTitles", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockGraph = { nodes: [], edges: [] };
+  });
+
+  it("returns an empty array when the graph has no nodes", async () => {
+    const { listNodeTitles } = await import("./graph.js");
+    expect(listNodeTitles()).toEqual([]);
+  });
+
+  it("returns all node titles in order", async () => {
+    const fs = await import("fs");
+    const writeFileSyncSpy = vi.mocked(fs.writeFileSync);
+
+    writeFileSyncSpy.mockImplementation((_path: unknown, data: unknown) => {
+      if (typeof data === "string") {
+        mockGraph = JSON.parse(data) as typeof mockGraph;
+      }
+    });
+
+    const { addNode, listNodeTitles } = await import("./graph.js");
+
+    addNode("Alpha", "body a", ["tag1"]);
+    addNode("Beta", "body b", ["tag2"]);
+
+    expect(listNodeTitles()).toEqual(["Alpha", "Beta"]);
   });
 });

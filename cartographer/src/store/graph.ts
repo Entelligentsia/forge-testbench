@@ -77,6 +77,11 @@ export function graphStats(graph: Graph): { nodes: number; edges: number } {
   return { nodes: graph.nodes.length, edges: graph.edges.length };
 }
 
+export function listNodeTitles(): string[] {
+  const graph = load();
+  return graph.nodes.map((n) => n.title);
+}
+
 export function mostConnectedNode(graph: Graph): { node: Node | null; degree: number } {
   if (graph.edges.length === 0) {
     return { node: null, degree: 0 };
