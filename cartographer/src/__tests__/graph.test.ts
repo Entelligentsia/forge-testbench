@@ -251,6 +251,33 @@ describe("exportMarkdown()", () => {
     // Plain link: no label parenthetical after the target title
     expect(linkLine).not.toContain("*(");
   });
+
+  it("renders **Links:** under source node only, not target node", () => {
+    const graph = {
+      nodes: [
+        { id: "id-a", title: "Alpha", body: "A body", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-b", title: "Beta", body: "B body", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+      ],
+      edges: [
+        { from: "id-a", to: "id-b", label: undefined, weight: 1 },
+      ],
+    };
+    vi.mocked(fs).readFileSync.mockReturnValueOnce(JSON.stringify(graph));
+    const md = exportMarkdown();
+
+    // Partition output into sections by ## NodeTitle headers
+    const sections = md.split(/(?=^## )/m).filter((s) => s.trim());
+    const alphaSection = sections.find((s) => s.startsWith("## Alpha")) ?? "";
+    const betaSection = sections.find((s) => s.startsWith("## Beta")) ?? "";
+
+    // Source (Alpha) must have Links block
+    expect(alphaSection).toContain("**Links:**");
+    expect(alphaSection).toContain("→ [Beta]");
+
+    // Target (Beta) must NOT have Links block — edge direction is one-way (from, not to)
+    expect(betaSection).not.toContain("**Links:**");
+    expect(betaSection).not.toContain("→ [Beta]");
+  });
 });
 
 describe("save() content verification", () => {
