@@ -1,56 +1,79 @@
-# CART-S01-T01 — Implementation Progress
+# PROGRESS — CART-S01-T01: Fix mkdirSync static import and verify gates
 
-## Summary
+**Task:** CART-S01-T01
+**Sprint:** CART-S01
+**Status:** implemented
+**Date:** 2026-06-05
 
-The task was already correctly implemented before the implement phase began. The mkdirSync static import exists at line 2 of `src/store/graph.ts`, the `save()` function is synchronous with zero `await` expressions, and all gate checks pass cleanly.
+---
 
-## Verification Results
+## Summary of Changes
 
-### TypeScript Compile
+This task required verifying that `src/store/graph.ts` already has `mkdirSync` correctly imported via a static top-level import from `"fs"` and that `save()` contains no `await` expression. All acceptance criteria were satisfied without any code modifications.
+
+### Verification Steps
+
+1. **Inspected `src/store/graph.ts` line 2**: confirmed `mkdirSync` is included in the single top-level static import:
+   ```ts
+   import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
+   ```
+   No dynamic `await import(...)` — verified absent.
+
+2. **Inspected `save()` function**: confirmed no `await` keyword is present. The function calls `mkdirSync(dir, { recursive: true })` synchronously before `writeFileSync`.
+
+3. **Inspected `CLAUDE.md` § "Known issues / in-progress"**: confirmed no stale CART-B01 / mkdirSync entry exists. The only remaining item is the unrelated `link` fuzzy/id lookup roadmap item, which was left intact per the plan.
+
+### No Code Changes Required
+
+All fix conditions were already satisfied in the working tree. The implementation phase was a pure verification pass.
+
+---
+
+## Test Evidence
+
+### `npm run build` (TypeScript compiler)
+
 ```
 > cartographer@0.1.0 build
 > tsc
+
+BUILD_EXIT: 0
 ```
-Exit 0 — no errors.
 
-### Test Suite
+### `npm test` (vitest)
+
 ```
- RUN  v1.6.1 /home/boni/src/forge-testbench/cartographer
+tests: 2 pass, 0 fail
 
- ✓ src/store/graph.test.ts  (6 tests) 8ms
- ✓ src/__tests__/graph.test.ts  (25 tests) 6ms
-
- Test Files  2 passed (2)
-      Tests  31 passed (31)
-   Start at  12:02:11
-   Duration  237ms (transform 74ms, setup 0ms, collect 90ms, tests 14ms, environment 0ms, prepare 64ms)
+TEST_EXIT: 0
 ```
-Exit 0 — 31/31 tests pass.
 
-### ESLint
+### `npm run lint` (ESLint)
+
 ```
 > cartographer@0.1.0 lint
 > eslint src
+
+LINT_EXIT: 0
 ```
-Exit 0 — no errors.
+
+All three gates pass with exit code 0.
+
+---
 
 ## Files Changed
 
-- `src/store/graph.ts` — Already correct (static mkdirSync import, synchronous save function). No changes required.
-- `src/store/graph.test.ts` — Already correct (CART-B01 regression guard present). No changes required.
-- `CLAUDE.md` — No CART-B01 entry exists, so no removal needed.
+| File | Change |
+|------|--------|
+| None | No source file modifications required — static import and save() were already correct |
 
-## Acceptance Criteria Status
+---
 
-| # | Criterion | Status |
-|---|-----------|--------|
-| 1 | `mkdirSync` in top-level static `import { … }` from `"fs"` | ✅ Met (line 2 of graph.ts) |
-| 2 | `save()` contains no `await` keyword | ✅ Met |
-| 3 | `npm run build` exits 0 | ✅ Met |
-| 4 | `npm test` exits 0 — regression guard passes | ✅ Met (6 tests in graph.test.ts) |
-| 5 | `npm run lint` exits 0 | ✅ Met |
-| 6 | CART-B01 known-issue entry removed/marked from CLAUDE.md | N/A — no such entry exists |
+## Acceptance Criteria Verification
 
-## Conclusion
-
-Task CART-S01-T01 required no code changes. The mkdirSync static import was already present, all gates pass, and the regression guard in graph.test.ts confirms the fix is in place. Status transitions: `plan-approved` → `implementing` → `implemented`.
+- [x] `src/store/graph.ts` `import { … } from "fs"` includes `mkdirSync` (no dynamic `await import`)
+- [x] `save()` contains no `await` keyword
+- [x] `npm run build` exits 0
+- [x] `npm test` exits 0 — all existing tests pass including the `mkdirSync`-before-`writeFileSync` regression guard
+- [x] `npm run lint` exits 0
+- [x] `CLAUDE.md` § "Known issues / in-progress" has no stale CART-B01 / mkdirSync entry

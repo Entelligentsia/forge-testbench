@@ -1,37 +1,42 @@
-# CART-S01-T01 — Plan Review (standalone review)
+# Plan Review: CART-S01-T01 (iteration 1 of 3)
 
-## Verdict: ✅ Approved
+**Task:** CART-S01-T01
+**Reviewer:** Supervisor
+**Date:** 2026-06-05
 
-## Summary
+---
 
-The plan correctly identifies that the CART-B01 fix (static `mkdirSync` import, removal of `await import("fs")` from synchronous `save()`) is already in place in the working tree, and proposes verification-only work (running the three gates). All claims in the plan were independently confirmed by reading the actual source code and running the gate commands.
+## Verdict: Approved
 
-## Independent Verification
+The plan is well-structured, complete, and addresses all acceptance criteria from the task prompt.
 
-| # | Acceptance Criterion | Plan Claim | Verified | Evidence |
-|---|----------------------|------------|----------|----------|
-| 1 | `mkdirSync` in top-level static `import { … } from "fs"` | ✅ Met | ✅ | Line 2 of `src/store/graph.ts`: `import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";` — single static import, no dynamic import anywhere in file |
-| 2 | `save()` contains no `await` keyword | ✅ Met | ✅ | `grep -n 'await' src/store/graph.ts` returns exit 1 (no matches). `save()` is a plain synchronous `void` function |
-| 3 | `npm run build` exits 0 | ✅ Met | ✅ | Ran independently — exit 0, no TypeScript errors |
-| 4 | `npm test` exits 0 | ✅ Met | ✅ | 31/31 tests pass. CART-B01 regression guard in `graph.test.ts` verifies `mkdirSync` invocation order < `writeFileSync` |
-| 5 | `npm run lint` exits 0 | ✅ Met | ✅ | Ran independently — exit 0, no ESLint errors |
-| 6 | CART-B01 known-issue entry removed from CLAUDE.md | N/A | ✅ | CLAUDE.md contains no CART-B01 entry; only the `link` title-resolution item. No change needed |
+### Plan Assessment
 
-## Security Review
+**Objective Alignment:** The plan correctly identifies the goal: verify that `mkdirSync` is statically imported and `save()` has no `await`, then run all three gates (build, test, lint).
 
-- `mkdirSync(dir, { recursive: true })` — standard Node.js pattern, no path traversal risk (fixed `.cartographer` directory under `HOME`)
-- `HOME` env var fallback to `"~"` is acceptable for a CLI tool; `~` expansion is handled by the shell, not Node, but this is a benign cosmetic fallback since `process.env.HOME` is practically always set on Linux/macOS
-- No user-controlled input reaches `mkdirSync` or `writeFileSync` paths — the directory path is hardcoded
+**Completeness:** The plan covers:
+1. Inspecting `src/store/graph.ts` for static `mkdirSync` import
+2. Verifying no `await` in `save()`
+3. Running all three gate commands sequentially
+4. Providing fallback actions if any gate fails
+5. Cleaning up the CLAUDE.md known-issues entry
+6. Re-running gates after any correction
 
-## Architecture Alignment
+**Feasibility:** The plan is entirely feasible. I verified the current codebase state:
+- `src/store/graph.ts` line 2 already has `mkdirSync` in the static `import { ... } from "fs"` statement
+- `save()` (lines 13-17) contains no `await` keyword
+- `save()` correctly calls `mkdirSync(dir, { recursive: true })` before `writeFileSync`
+- `CLAUDE.md` known-issues section contains only the unrelated `link` fuzzy-lookup roadmap item (no stale CART-B01 entry)
 
-- Pure-function export pattern preserved (no classes, singletons, or side effects in module scope)
-- Offline-only constraint maintained — no network or database dependency introduced
-- Single-extend of existing import line is correct; avoids duplicate import statements
-- Consistent with stack.md: ESM module, explicit `.js` extensions in imports, `fs` module used directly
+**Testing Strategy:** Appropriate. The plan relies on existing tests to verify the regression guard, which is correct since CART-S01-T02 explicitly handles adding new tests for directory-path assertions.
 
-## Advisory Notes
+**Risk Mitigation:** The plan correctly identifies the risk of adding a second import statement and specifies the solution (merge into existing import).
 
-1. **`lowdb` is listed as a dependency but unused** — the stack.md already flags this. Not in scope for this task, but worth tracking for future cleanup.
-2. **CART-B01 bug record is absent from the store** — the task prompt references CART-B01 but no bug record with that ID exists in `.forge/store/bugs/` (only CART-BUG-001 and CART-BUG-002). This is a minor bookkeeping discrepancy but does not affect the technical correctness of the plan.
-3. **`process.env.HOME ?? "~"` fallback** — if `HOME` is unset (rare on Unix, possible in some CI environments), `join("~", ".cartographer")` will create a literal `~/.cartographer` directory rather than expanding to the user's home. Not a bug (this is pre-existing behavior), but worth noting for future hardening.
+### Advisory Notes
+
+- The plan states "If any gate is red, apply minimal targeted fix" which is appropriate. The code inspection confirms all fixes are already in place, so the implementation phase should simply run the gates and verify success.
+- The CLAUDE.md entry for mkdirSync appears to already be resolved (no entry present). The implementation phase should confirm this and document that no action was needed.
+
+---
+
+**Verdict:** Approved

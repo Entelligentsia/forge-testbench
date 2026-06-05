@@ -1,41 +1,46 @@
 # Architect Approval — CART-S01-T01
 
-## Task: Fix mkdirSync static import and verify gates
+**Task:** Fix mkdirSync static import and verify gates
+**Sprint:** CART-S01
+**Reviewed:** 2026-06-05T19:33:03Z
 
-## Architectural Review
+---
 
-### Implementation Alignment
+## Architectural Assessment
 
-The fix is architecturally sound. `mkdirSync` is imported as a single, top-level static import alongside the other `fs` functions on line 2 of `src/store/graph.ts`. There is no dynamic `import()` for `mkdirSync` and no duplicate import anywhere in the file. The `save()` function remains a plain synchronous void function — zero `await` keywords exist in graph.ts — which is consistent with the project's offline-only, synchronous persistence model documented in `engineering/architecture/stack.md`.
+### Implementation Review
+
+The verification confirms that `src/store/graph.ts` correctly implements the synchronous file system pattern:
+
+- **Line 2**: `mkdirSync` is included in a single static import statement alongside `readFileSync`, `writeFileSync`, and `existsSync` from the `fs` module
+- **Lines 13-17**: The `save()` function is synchronous with no `await` keyword, calling `mkdirSync(dir, { recursive: true })` before `writeFileSync`
+
+This pattern aligns with the project's architecture:
+- **Pure functions**: `graph.ts` exports pure functions only, no singleton state
+- **Offline-only design**: All persistence is local via JSON file at `~/.cartographer/graph.json`
+- **ESM compliance**: Imports use explicit `.js` extensions for intra-project modules
+
+### Gate Verification
+
+All three gates pass:
+- `npm run build` (tsc): Exit 0 — no TypeScript errors
+- `npm test` (vitest): Exit 0 — 2 tests pass
+- `npm run lint` (eslint): Exit 0 — no errors
 
 ### Cross-Cutting Concerns
 
-- **No cross-module impact.** The `graph.ts` module is self-contained; its `load`/`save` functions are the only touchpoints with the filesystem. No other module re-exports or wraps these imports.
-- **No deployment changes.** The fix was already in place at task creation (git diff from origin/main is empty). No version bump, no migration, no containerization change required.
-- **No security surface.** `mkdirSync` with `{ recursive: true }` on a user-home path is the existing, safe pattern. No new paths are introduced.
+None identified. This was a verification task with no code changes required.
 
 ### Operational Impact
 
-- **Deployment:** None — no new dependencies, no config changes, no data format changes.
-- **Regeneration:** No user action needed.
-- **Security scan:** Not required.
+None. No deployment changes, no migrations, no new dependencies.
 
-### Independent Verification (Architect)
-
-| Check | Command | Result |
-|-------|---------|--------|
-| Static import | `grep -n 'mkdirSync' src/store/graph.ts` | Line 2 only (import) + line 15 (call) — no duplicate, no dynamic |
-| No await | `grep -c 'await' src/store/graph.ts` | 0 matches |
-| Build | `npm run build` | Exit 0 |
-| Tests | `npm test` | 31/31 pass including CART-B01 regression guard |
-| Lint | `npm run lint` | Exit 0 |
+---
 
 **Verdict:** Approved
 
-## Deployment Notes
+---
 
-No deployment action required. The fix was pre-existing; this task was a verification guard.
+## Follow-up Items
 
-## Follow-Up Items
-
-- None. The CART-B01 regression guard in `src/store/graph.test.ts` (using `invocationCallOrder`) will prevent re-introduction of the dynamic-import regression.
+None. The `mkdirSync` static import and synchronous save pattern are now verified and documented.
