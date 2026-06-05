@@ -396,3 +396,52 @@ describe("mostConnectedNode()", () => {
     expect(mostConnectedNode(graph)).toEqual({ node: null, degree: 0 });
   });
 });
+
+describe("stats pluralisation logic", () => {
+  // These tests mirror the ternary expressions used in cli.ts stats action:
+  //   `${nodes} ${nodes === 1 ? "node" : "nodes"}, ${edges} ${edges === 1 ? "edge" : "edges"}`
+  it("formats 0 nodes and 0 edges correctly", () => {
+    const { nodes, edges } = graphStats({ nodes: [], edges: [] });
+    const line = `${nodes} ${nodes === 1 ? "node" : "nodes"}, ${edges} ${edges === 1 ? "edge" : "edges"}`;
+    expect(line).toBe("0 nodes, 0 edges");
+  });
+
+  it("formats 1 node and 0 edges with singular node", () => {
+    const graph = {
+      nodes: [{ id: "id-a", title: "A", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" }],
+      edges: [],
+    };
+    const { nodes, edges } = graphStats(graph);
+    const line = `${nodes} ${nodes === 1 ? "node" : "nodes"}, ${edges} ${edges === 1 ? "edge" : "edges"}`;
+    expect(line).toBe("1 node, 0 edges");
+  });
+
+  it("formats 2 nodes and 1 edge with singular edge", () => {
+    const graph = {
+      nodes: [
+        { id: "id-a", title: "A", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-b", title: "B", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+      ],
+      edges: [{ from: "id-a", to: "id-b", label: undefined, weight: 1 }],
+    };
+    const { nodes, edges } = graphStats(graph);
+    const line = `${nodes} ${nodes === 1 ? "node" : "nodes"}, ${edges} ${edges === 1 ? "edge" : "edges"}`;
+    expect(line).toBe("2 nodes, 1 edge");
+  });
+
+  it("formats 2 nodes and 2 edges with plural both", () => {
+    const graph = {
+      nodes: [
+        { id: "id-a", title: "A", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+        { id: "id-b", title: "B", body: "", tags: [], createdAt: "2025-01-01T00:00:00.000Z", updatedAt: "2025-01-01T00:00:00.000Z" },
+      ],
+      edges: [
+        { from: "id-a", to: "id-b", label: undefined, weight: 1 },
+        { from: "id-b", to: "id-a", label: undefined, weight: 1 },
+      ],
+    };
+    const { nodes, edges } = graphStats(graph);
+    const line = `${nodes} ${nodes === 1 ? "node" : "nodes"}, ${edges} ${edges === 1 ? "edge" : "edges"}`;
+    expect(line).toBe("2 nodes, 2 edges");
+  });
+});
