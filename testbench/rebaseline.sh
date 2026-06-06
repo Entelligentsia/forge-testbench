@@ -21,9 +21,12 @@ PROJECT="${1:?usage: rebaseline.sh <project>}"
 PROJ="$ROOT/$PROJECT"
 [ -f "$PROJ/.forge/config.json" ] || { echo "× $PROJECT has no .forge/config.json — onboard it first (init + curate fixtures)" >&2; exit 1; }
 
-# 1. Locate the installed forgecli payload ──────────────────────────────────
-PKG_JSON="$(node -e "console.log(require.resolve('@entelligentsia/forgecli/package.json'))" 2>/dev/null \
-	|| node -e "console.log(require('path').join(require('child_process').execSync('npm root -g').toString().trim(), '@entelligentsia/forgecli/package.json'))")"
+# 1. Locate the GLOBALLY installed forgecli payload ─────────────────────────
+# npm root -g FIRST: require.resolve from an arbitrary cwd can walk up into a
+# stale ~/node_modules and silently rebaseline against an ancient payload.
+PKG_JSON="$(npm root -g 2>/dev/null)/@entelligentsia/forgecli/package.json"
+[ -f "$PKG_JSON" ] || PKG_JSON="$(node -e "console.log(require.resolve('@entelligentsia/forgecli/package.json'))" 2>/dev/null || true)"
+[ -n "$PKG_JSON" ] && [ -f "$PKG_JSON" ] || { echo "× @entelligentsia/forgecli not installed globally — npm install -g it first" >&2; exit 1; }
 PKG_ROOT="$(dirname "$PKG_JSON")"
 PAYLOAD="$PKG_ROOT/dist/forge-payload"
 [ -d "$PAYLOAD" ] || { echo "× bundled payload not found at $PAYLOAD — npm install -g @entelligentsia/forgecli" >&2; exit 1; }

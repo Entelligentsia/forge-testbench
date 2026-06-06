@@ -452,9 +452,9 @@ Or promote to full mode:
 
 | Index | Contents |
 |-------|----------|
-| [MASTER_INDEX](hello-project-knowledge/MASTER_INDEX.md) | All sprints, tasks, bugs, and features |
-| [Architecture](hello-project-knowledge/architecture/INDEX.md) | Stack, processes, database, routing, deployment |
-| [Business Domain](hello-project-knowledge/business-domain/INDEX.md) | Entity model and domain concepts |
+| [MASTER_INDEX](engineering/MASTER_INDEX.md) | All sprints, tasks, bugs, and features |
+| [Architecture](engineering/architecture/INDEX.md) | Stack, processes, database, routing, deployment |
+| [Business Domain](engineering/business-domain/INDEX.md) | Entity model and domain concepts |
 
 Personas live in `.forge/personas/`.
 <!-- /forge-kb-links -->
@@ -466,9 +466,9 @@ Personas live in `.forge/personas/`.
 |----------|---------|
 | [Plan](.forge/workflows/plan_task.md) | Research codebase → implementation plan |
 | [Implement](.forge/workflows/implement_plan.md) | Execute approved plan → code changes |
-| [Fix bug](.forge/workflows/fix_bug.md) | Triage → fix → verify |
-| [Run task](.forge/workflows/orchestrate_task.md) | Full task pipeline (plan → implement → review → commit) |
-| [Run sprint](.forge/workflows/run_sprint.md) | Full sprint orchestration |
+| [Review plan](.forge/workflows/review_plan.md) | Supervisor reviews implementation plan |
+| [Review code](.forge/workflows/review_code.md) | Supervisor reviews code changes |
+| [Commit](.forge/workflows/commit_task.md) | Commit completed task |
 | [Sprint plan](.forge/workflows/architect_sprint_plan.md) | Sprint planning and task decomposition |
 | [Sprint intake](.forge/workflows/architect_sprint_intake.md) | Sprint intake and requirements elicitation |
 <!-- /forge-workflow-links -->
