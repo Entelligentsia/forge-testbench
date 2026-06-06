@@ -1,8 +1,13 @@
 {
-  "createdAt": "2026-06-04T13:13:52+00:00",
+  "createdAt": "2026-06-06T14:05:33+00:00",
   "baselineTag": "testbench/cartographer-baseline",
-  "baselineSha": "a69aba0906baa0dcffd263abfc8efc2337482ca4",
-  "stateTgzSha256": "34cff3ed56d5ad1002c11dae355fe6545c0c626e9335c4783643d1c26e5119d8",
+  "baselineSha": "285f545681e83c9cc2b79b0b9ad2c9cdbbd7f0d2",
+  "pluginVersion": "1.2.20",
+  "forgecliVersion": "1.0.24",
+  "sentinels": {
+    "commit-task.cjs": true,
+    "store-cli.cjs": true
+  },
   "entities": {
     "sprints": {
       "CART-S01": "planning",
