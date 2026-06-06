@@ -33,7 +33,7 @@ node .forge/tools/banners.cjs forge
 ## Project Context
 
 - **Pipeline**: default (plan → review-plan → implement → review-code → validate → approve → commit)
-- **ID prefix**: SPE
+- **ID prefix**: SPECTRAL
 - **Store root**: `.forge/store/`
 
 ## Commands

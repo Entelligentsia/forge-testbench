@@ -1,4 +1,4 @@
-# Cost Report — SPE Sprint
+# Cost Report — SPECTRAL Sprint
 
 **Sprint:** {{SPRINT_ID}}
 **Generated:** {{DATE}}

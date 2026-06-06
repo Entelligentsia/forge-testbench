@@ -31,7 +31,7 @@ node .forge/tools/banners.cjs north
 ## Project Context
 
 - **Entity model and service boundaries**: See `engineering/architecture/` and `engineering/architecture/../business-domain/entity-model.md`
-- **ID format and prefix convention**: Task IDs use the EGL prefix from `.forge/config.json`
+- **ID format and prefix convention**: Task IDs use the EMBER prefix from `.forge/config.json`
 - **Technical debt areas**: 
 - **Deployment topology**: See `engineering/architecture/deployment.md`
 - **Operational impact categories**: 

@@ -31,24 +31,3 @@ _[No features yet ↗](features/INDEX.md)_
 | [HELLO-BUG-001](bugs/HELLO-BUG-001/INDEX.md) | --count with --shout repeats one greeting too few   | minor    | 🔴 reported |
 | [HELLO-BUG-002](bugs/HELLO-BUG-002/INDEX.md) | --shout appears ignored when combined with --formal | minor    | 🔴 reported |
 
-## Domain Entities
-<!-- Will be populated as the project grows -->
-
-
-## Architecture
-- [Stack](architecture/stack.md)
-- [Processes](architecture/processes.md)
-
-
-## Sprints
-<!-- Active and completed sprints -->
-
-
-## Bugs
-<!-- Active and resolved bugs -->
-
-
-## Features
-<!-- Feature registry -->
-<!-- /forge-kb -->
-

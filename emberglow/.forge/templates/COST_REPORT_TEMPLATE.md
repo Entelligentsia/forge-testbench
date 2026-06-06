@@ -1,4 +1,4 @@
-# Cost Report — EGL Sprint
+# Cost Report — EMBER Sprint
 
 **Sprint:** {{SPRINT_ID}}
 **Generated:** {{DATE}}

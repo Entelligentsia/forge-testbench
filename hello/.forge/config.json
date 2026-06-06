@@ -9,7 +9,7 @@
     "customCommands": "engineering/commands",
     "forgeRoot": "/home/boni/.nvm/versions/node/v24.3.0/lib/node_modules/@entelligentsia/forgecli/dist/forge-payload"
   },
-  "version": "1.2.20",
+  "version": "1.2.21",
   "project": {
     "name": "hello",
     "prefix": "HELLO"
