@@ -2,7 +2,7 @@
 
 # cartographer — Master Index
 
-> Generated: 2026-06-04
+> Generated: 2026-06-06
 
 ## Feature Registry
 

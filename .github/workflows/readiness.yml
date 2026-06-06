@@ -1,0 +1,30 @@
+# Clone-ready gate (release-parity contract): every push and a weekly tick
+# verify that a fresh clone at HEAD can run /forge:run-sprint, /forge:run-task,
+# /forge:fix-bug against the onboarded projects with the versions pinned in
+# testbench/golden/<project>/MANIFEST.json.
+#
+# repository_dispatch (type: forge-release) lets the forge / forge-cli release
+# flows trigger the gate after a rebaseline lands.
+name: readiness
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 6 * * 1" # weekly Monday tick — catches bit-rot between releases
+  repository_dispatch:
+    types: [forge-release]
+  workflow_dispatch:
+
+jobs:
+  clone-ready:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # readiness.sh uses git worktree of HEAD; tags needed for reset parity
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: cartographer clone-ready gate
+        run: bash testbench/readiness.sh cartographer

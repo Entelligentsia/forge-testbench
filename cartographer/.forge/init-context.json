@@ -1,0 +1,24 @@
+{
+  "project": {
+    "name": "cartographer",
+    "prefix": "CARTO"
+  },
+  "commands": {
+    "syntaxCheck": "",
+    "test": "npm test",
+    "build": "npm run build",
+    "lint": "npm run lint"
+  },
+  "paths": {
+    "engineering": "engineering",
+    "store": ".forge/store",
+    "workflows": ".forge/workflows",
+    "commands": ".claude/commands/carto",
+    "templates": ".forge/templates"
+  },
+  "personas": [],
+  "templates": [],
+  "architectureDocs": [],
+  "entities": [],
+  "skillWiring": []
+}

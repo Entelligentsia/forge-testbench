@@ -1,0 +1,38 @@
+{
+  "version": "1.2.20",
+  "project": {
+    "name": "cartographer",
+    "prefix": "CARTO"
+  },
+  "stack": {
+    "primary": [
+      "typescript",
+      "node"
+    ],
+    "test": "vitest",
+    "build": "tsc",
+    "lint": "eslint"
+  },
+  "commands": {
+    "test": "npm test",
+    "build": "npm run build",
+    "lint": "npm run lint"
+  },
+  "paths": {
+    "engineering": "engineering",
+    "store": ".forge/store",
+    "workflows": ".forge/workflows",
+    "commands": ".claude/commands/carto",
+    "templates": ".forge/templates",
+    "forgeRoot": "/home/boni/.nvm/versions/node/v24.3.0/lib/node_modules/@entelligentsia/forgecli/dist/forge-payload",
+    "forgeRef": "1.2.17"
+  },
+  "mode": "full",
+  "installedSkills": [],
+  "calibrationBaseline": {
+    "lastCalibrated": "2026-06-05T06:19:31.727Z",
+    "version": "1.2.17",
+    "masterIndexHash": "31b9c8d05a4196831a029c325a21cbf13364d977b02c852f0189d140e984a41d",
+    "sprintsCovered": []
+  }
+}

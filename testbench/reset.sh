@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 # reset.sh <project> — restore the project to its golden pristine state.
-# Fast, deterministic, no LLM, no store semantics: pure git + tar restore.
+# Fast, deterministic, no LLM, no store semantics: pure git restore.
 #
-#   1. Tracked source: git restore from tag testbench/<project>-baseline,
+# Since the release-parity change, the FULL Forge instance (.forge/ minus
+# volatile dirs, engineering/, .claude/workflows/) is git-tracked, so the
+# baseline tag is the single source of truth — no tarball.
+#
+#   1. Tracked state: git restore from tag testbench/<project>-baseline,
 #      scoped to the project subtree (other testbench projects untouched);
-#      untracked leftovers removed with git clean (gitignored state like
-#      .forge/ and engineering/ is handled by step 2, not git).
-#   2. Forge state: wipe .forge/store, .forge/cache, .forge/transcripts,
-#      enhancement-proposals + root run-artifacts, then untar golden.
-#   3. Verify: entity counts/statuses vs MANIFEST.json + validate-store.
+#      untracked leftovers removed with git clean.
+#   2. Volatile dirs recreated empty (.forge/cache, transcripts, events,
+#      enhancement-proposals) + root run-artifacts removed.
+#   3. Verify: entity census/statuses vs MANIFEST.json + validate-store.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -17,23 +20,23 @@ PROJ="$ROOT/$PROJECT"
 GOLDEN="$ROOT/testbench/golden/$PROJECT"
 TAG="testbench/$PROJECT-baseline"
 
-[ -f "$GOLDEN/state.tgz" ] || { echo "× no golden snapshot at $GOLDEN — run snapshot.sh first" >&2; exit 1; }
+[ -f "$GOLDEN/MANIFEST.json" ] || { echo "× no golden manifest at $GOLDEN — run snapshot.sh first" >&2; exit 1; }
 git -C "$ROOT" rev-parse -q --verify "$TAG" >/dev/null || { echo "× missing git tag $TAG — run snapshot.sh first" >&2; exit 1; }
 
 echo "── reset: $PROJECT ← golden ($(python3 -c "import json;print(json.load(open('$GOLDEN/MANIFEST.json'))['createdAt'])"))"
 
-# 1. Tracked source back to baseline (project subtree only) ─────────────────
+# 1. Tracked state back to baseline (project subtree only) ──────────────────
 git -C "$ROOT" restore --source="$TAG" --worktree --staged -- "$PROJECT/" 2>/dev/null || true
 git -C "$ROOT" clean -qfd -e node_modules -e dist -- "$PROJECT/"
-echo "  ✓ src restored from $TAG ($(git -C "$ROOT" rev-parse --short "$TAG"))"
+echo "  ✓ tracked state restored from $TAG ($(git -C "$ROOT" rev-parse --short "$TAG"))"
 
-# 2. Forge state from golden ────────────────────────────────────────────────
-rm -rf "$PROJ/.forge/store" "$PROJ/.forge/cache" "$PROJ/.forge/transcripts" "$PROJ/.forge/enhancement-proposals"
-rm -rf "$PROJ/engineering"
-rm -f "$PROJ"/VALIDATION_REPORT.md "$PROJ"/COMMIT-SUMMARY.json "$PROJ"/BUG_REPORT*.md
-mkdir -p "$PROJ/.forge/transcripts" "$PROJ/.forge/enhancement-proposals"
-tar xzf "$GOLDEN/state.tgz" -C "$PROJ"
-echo "  ✓ store / cache / engineering / fixtures restored"
+# 2. Volatile dirs + run artifacts ───────────────────────────────────────────
+rm -rf "$PROJ/.forge/cache" "$PROJ/.forge/transcripts" "$PROJ/.forge/enhancement-proposals"
+rm -rf "$PROJ/.forge/store/events"
+mkdir -p "$PROJ/.forge/cache" "$PROJ/.forge/transcripts" "$PROJ/.forge/enhancement-proposals" "$PROJ/.forge/store/events"
+touch "$PROJ/.forge/store/events/.gitkeep"
+rm -f "$PROJ"/VALIDATION_REPORT.md "$PROJ"/COMMIT-SUMMARY.json
+echo "  ✓ volatile state recreated empty"
 
 # 3. Verify against the manifest ────────────────────────────────────────────
 python3 - "$PROJ/.forge/store" "$GOLDEN/MANIFEST.json" <<'PY'

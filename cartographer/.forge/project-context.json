@@ -1,0 +1,47 @@
+{
+  "project": {
+    "name": "cartographer",
+    "prefix": "CARTO",
+    "description": "Terminal knowledge-graph CLI — link ideas, export to markdown",
+    "stack": ["TypeScript 5.3", "Node.js 20+", "Commander 11.1", "Lowdb 7"],
+    "commands": {
+      "test": "npm test",
+      "build": "npm run build",
+      "deploy": ""
+    }
+  },
+  "architecture": {
+    "frameworks": {
+      "backend": "Commander 11.1 + Lowdb 7",
+      "frontend": "",
+      "database": "JSON file (~/.cartographer/graph.json)"
+    },
+    "dataAccess": "Lowdb (synchronous JSON file I/O)",
+    "deployment": "npm package (local CLI)",
+    "keyDirectories": ["src/cli.ts", "src/store/graph.ts", "src/types.ts"]
+  },
+  "entities": ["Node", "Edge"],
+  "conventions": {
+    "branching": "",
+    "taskIdFormat": "CARTO-###"
+  },
+  "impactCategories": [],
+  "technicalDebt": [
+    "save() uses await import('fs') inside sync function (AGENTS.md known issue)",
+    "No concurrency protection on graph.json writes",
+    "Node lookup by title is case-sensitive linear scan — no index",
+    "No CI/CD pipeline configured"
+  ],
+  "deployment": {
+    "environments": [],
+    "impactNotes": "Offline-only CLI — no deployment environments beyond local npm install"
+  },
+  "verification": {
+    "typeCheck": "npx tsc --noEmit",
+    "lint": "npm run lint",
+    "test": "npm test",
+    "build": "npm run build",
+    "infraBuild": ""
+  },
+  "skillWiring": []
+}

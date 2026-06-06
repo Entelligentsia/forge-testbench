@@ -1,9 +1,19 @@
-# Forge-generated (users create these)
-.forge/
-engineering/
+# Forge instances are TRACKED (release-parity contract: clone → main →
+# /forge:run-sprint works). Only volatile runtime state is ignored.
+**/.forge/cache/
+**/.forge/transcripts/
+**/.forge/store/events/*
+!**/.forge/store/events/.gitkeep
+**/.forge/enhancement-proposals/
+**/.forge/update-check-cache.json
+**/.forge/pi-settings.json
+**/.forge/init-progress.json
+**/.forge/archive/
 
-# Claude Code
-.claude/
+# Claude Code — only Forge-materialized workflows/commands are tracked
+**/.claude/*
+!**/.claude/workflows/
+!**/.claude/commands/
 
 # Environment
 .env
