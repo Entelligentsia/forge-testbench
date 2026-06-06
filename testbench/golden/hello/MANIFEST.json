@@ -1,0 +1,25 @@
+{
+  "createdAt": "2026-06-06T14:20:20+00:00",
+  "baselineTag": "testbench/hello-baseline",
+  "baselineSha": "57f3dd9f0535d58dd4ae40147c5342f483f5b1ac",
+  "pluginVersion": "1.2.20",
+  "forgecliVersion": "1.0.24",
+  "sentinels": {
+    "commit-task.cjs": true,
+    "store-cli.cjs": true
+  },
+  "entities": {
+    "sprints": {
+      "HELLO-S01": "planning"
+    },
+    "tasks": {
+      "HELLO-S01-T01": "draft",
+      "HELLO-S01-T02": "draft",
+      "HELLO-S01-T03": "draft"
+    },
+    "bugs": {
+      "HELLO-BUG-001": "reported",
+      "HELLO-BUG-002": "reported"
+    }
+  }
+}
