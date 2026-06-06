@@ -1,7 +1,7 @@
 {
-  "createdAt": "2026-06-06T14:20:20+00:00",
+  "createdAt": "2026-06-06T14:21:22+00:00",
   "baselineTag": "testbench/hello-baseline",
-  "baselineSha": "57f3dd9f0535d58dd4ae40147c5342f483f5b1ac",
+  "baselineSha": "d018cdec03b600a2ecf7e39f52c9bd9062cfe587",
   "pluginVersion": "1.2.20",
   "forgecliVersion": "1.0.24",
   "sentinels": {
