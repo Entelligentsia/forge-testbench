@@ -1,6 +1,6 @@
 {
-  "createdAt": "2026-06-06T14:27:32+00:00",
-  "baselineTag": "testbench/hello-baseline",
+  "createdAt": "2026-06-06T14:27:31+00:00",
+  "baselineTag": "testbench/emberglow-baseline",
   "baselineSha": "405b2dd25d58189a8c63bdf2ee19966ea4cbff00",
   "pluginVersion": "1.2.20",
   "forgecliVersion": "1.0.24",
@@ -10,16 +10,15 @@
   },
   "entities": {
     "sprints": {
-      "HELLO-S01": "planning"
+      "EMBER-S01": "planning"
     },
     "tasks": {
-      "HELLO-S01-T01": "draft",
-      "HELLO-S01-T02": "draft",
-      "HELLO-S01-T03": "draft"
+      "EMBER-S01-T01": "draft",
+      "EMBER-S01-T02": "draft",
+      "EMBER-S01-T03": "draft"
     },
     "bugs": {
-      "HELLO-BUG-001": "reported",
-      "HELLO-BUG-002": "reported"
+      "EMBER-BUG-001": "reported"
     }
   }
 }
