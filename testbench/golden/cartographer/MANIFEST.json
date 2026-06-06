@@ -1,9 +1,9 @@
 {
-  "createdAt": "2026-06-06T14:27:33+00:00",
+  "createdAt": "2026-06-06T15:55:23+00:00",
   "baselineTag": "testbench/cartographer-baseline",
-  "baselineSha": "405b2dd25d58189a8c63bdf2ee19966ea4cbff00",
-  "pluginVersion": "1.2.20",
-  "forgecliVersion": "1.0.24",
+  "baselineSha": "9e3b554398be381fa8027dd9f40f165aaf7cb55d",
+  "pluginVersion": "1.2.21",
+  "forgecliVersion": "1.0.25",
   "sentinels": {
     "commit-task.cjs": true,
     "store-cli.cjs": true
