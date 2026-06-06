@@ -1,22 +1,50 @@
 # Testbench reset harness
 
-Golden-snapshot reset for Forge testbench projects. One command returns a
-project to a pristine, ready-to-execute state: sprint folders with
-`TASK_PROMPT.md`s, `BUG_REPORT.md` fixtures, store entities at their initial
-statuses (`sprints: planning`, `tasks: draft`, `bugs: reported`), empty event
-log / cache / transcripts, and tracked source restored to the baseline tag.
+Golden-baseline reset + release-parity gates for Forge testbench projects.
+
+**The clone-ready contract:** for every onboarded project, `git clone` →
+`checkout main` → `/forge:run-sprint CART-S0x` / `/forge:run-task
+CART-S0x-Tnn` / `/forge:fix-bug CART-BUG-00n` works, at the plugin/forgecli
+versions pinned in `golden/<project>/MANIFEST.json`. The full Forge instance
+(`.forge/` minus volatile dirs, `engineering/`, `.claude/workflows|commands/`)
+is **git-tracked**; the baseline tag is the single source of truth (the old
+tarball mechanism is retired). forgecli ≥ 1.0.24 self-heals a foreign
+`paths.forgeRoot` to its own bundled payload, so tracked configs are portable.
+
+Onboarded: **cartographer**. (hello / emberglow / spectral are "experience
+init yourself" demo projects — see the root README.)
 
 ## Day-to-day
 
 ```bash
-testbench/reset.sh cartographer
+testbench/reset.sh cartographer     # restore pristine between runs (pure git)
+testbench/readiness.sh cartographer # verify the clone-ready contract at HEAD
 ```
 
-Pure git + tar restore — fast, deterministic, no LLM, no store semantics.
-Verifies entity counts/statuses against `golden/<project>/MANIFEST.json` and
-runs `validate-store --dry-run` before reporting `PRISTINE`. Then run any of
-`/forge:run-sprint CART-S0x`, `/forge:run-task CART-S0x-Tnn`,
-`/forge:fix-bug CART-BUG-00n`.
+`reset.sh` is git-restore + volatile-dir recreation, census-verified against
+`golden/<project>/MANIFEST.json` and gated on `validate-store --dry-run`.
+`readiness.sh` simulates a fresh clone in a temporary worktree (node + git
+only, no forgecli, CI-safe) — it is also the CI gate
+(`.github/workflows/readiness.yml`: every push, weekly, and on
+`repository_dispatch` type `forge-release`).
+
+## Release parity (every forge plugin / forgecli release)
+
+```bash
+testbench/rebaseline.sh cartographer
+# then, as the script prints:
+git add -A cartographer/ && git commit -m "rebaseline: …"
+testbench/snapshot.sh cartographer
+git add testbench/golden/cartographer/ && git commit -m "golden: …"
+git push origin main && git push -f origin testbench/cartographer-baseline
+testbench/readiness.sh cartographer
+```
+
+`rebaseline.sh` re-materializes the instance from the **installed forgecli's
+bundled payload** (config stamp → `substitute-placeholders.cjs` → tools +
+schemas vendoring → `make-pristine.sh`). This step is on the forge-releaser /
+forge-cli release checklists — a release is not done until the testbench
+readiness gate is green at the new version.
 
 ## Changing the fixtures
 
@@ -27,33 +55,39 @@ runs `validate-store --dry-run` before reporting `PRISTINE`. Then run any of
    `SPRINT_PLAN.md`, `SPRINT_REQUIREMENTS.md`, `BUG_REPORT*.md`,
    `sprint_requirements.md`), re-collates KB indexes, gates on
    `validate-store`.
-3. `testbench/snapshot.sh <project>` — captures `golden/<project>/state.tgz`,
-   force-moves the `testbench/<project>-baseline` git tag to HEAD, writes
-   `MANIFEST.json`.
-4. Commit `testbench/golden/<project>/` (and push the tag:
-   `git push -f origin testbench/<project>-baseline`).
+3. Commit the pristine state (snapshot refuses uncommitted trees).
+4. `testbench/snapshot.sh <project>` — force-moves the
+   `testbench/<project>-baseline` tag to HEAD and writes the version-stamped
+   `MANIFEST.json` (entity census, plugin/forgecli versions, tool sentinels).
+5. Commit `testbench/golden/<project>/MANIFEST.json`; push main and the tag
+   (`git push -f origin testbench/<project>-baseline`).
+
+## Onboarding a new project (emberglow / spectral)
+
+1. `/forge:init` the project with forgecli; curate sprints/tasks/bugs fixtures.
+2. `make-pristine.sh` → commit → `snapshot.sh` → commit MANIFEST → push + tag.
+3. Add a `readiness.sh <project>` step to `.github/workflows/readiness.yml`.
 
 ## Layout
 
 ```
 testbench/
 ├── reset.sh           # restore golden — the one you run between test runs
-├── snapshot.sh        # capture current state as golden
+├── readiness.sh       # clone-ready gate (CI + local) — node + git only
+├── rebaseline.sh      # release hook: re-materialize instance from installed forgecli
+├── snapshot.sh        # capture current committed state as golden (tag + MANIFEST)
 ├── make-pristine.sh   # executed state -> pristine state (curation, run rarely)
 └── golden/
     └── cartographer/
-        ├── state.tgz      # .forge/store + cache + engineering/ + root fixtures
-        └── MANIFEST.json  # baseline tag/sha, entity census, tgz checksum
+        └── MANIFEST.json  # baseline tag/sha, entity census, version pins, sentinels
 ```
-
-Scripts are project-parameterized — to onboard `emberglow`/`spectral`, run the
-same make-pristine → snapshot flow with that project name.
 
 ## Notes
 
 - `reset.sh` scopes `git restore`/`git clean` to the project subtree, so other
   testbench projects' in-flight work is untouched.
-- `.forge/` and `engineering/` are gitignored inside projects — that's why the
-  golden state travels as a tarball under `testbench/golden/` (tracked).
+- Volatile state is never tracked: `.forge/cache/`, `.forge/transcripts/`,
+  `.forge/store/events/` (a `.gitkeep` keeps the dir), enhancement-proposals,
+  `pi-settings.json`, `init-progress.json`.
 - Task branches created by sprint runs (`cart/*`) are left alone; reset only
   restores file state. Delete branches manually if they pile up.
