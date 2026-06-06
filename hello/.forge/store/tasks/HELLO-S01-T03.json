@@ -1,0 +1,13 @@
+{
+  "taskId": "HELLO-S01-T03",
+  "sprintId": "HELLO-S01",
+  "title": "Document --goodbye in README and CLAUDE.md",
+  "status": "draft",
+  "path": "engineering/sprints/HELLO-S01/HELLO-S01-T03",
+  "description": "Add the --goodbye flag to the README usage examples and the CLAUDE.md CLI surface table; note the --formal interaction (Farewell form).",
+  "estimate": "S",
+  "dependencies": [
+    "HELLO-S01-T01"
+  ],
+  "feature_id": null
+}

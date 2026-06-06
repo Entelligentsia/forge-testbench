@@ -1,0 +1,9 @@
+{
+  "bugId": "HELLO-BUG-002",
+  "title": "--shout appears ignored when combined with --formal",
+  "severity": "minor",
+  "status": "reported",
+  "path": "engineering/bugs/HELLO-BUG-002",
+  "reportedAt": "2026-06-06T00:00:00Z",
+  "description": "Reported via BUG_REPORT1.md: `hello Alice --formal --shout` should print GREETINGS, ALICE. Verify the shout guard applies on the formal path; tests/test_shout_formal.py is the regression guard."
+}

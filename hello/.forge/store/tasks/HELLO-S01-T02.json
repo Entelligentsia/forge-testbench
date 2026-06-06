@@ -1,0 +1,13 @@
+{
+  "taskId": "HELLO-S01-T02",
+  "sprintId": "HELLO-S01",
+  "title": "Test coverage for --goodbye interactions",
+  "status": "draft",
+  "path": "engineering/sprints/HELLO-S01/HELLO-S01-T02",
+  "description": "Extend tests/ with CliRunner cases covering --goodbye alone, --goodbye --shout, --goodbye --count 3, and --goodbye --formal. Follow the standalone-script pattern of tests/test_shout_formal.py (exit non-zero on failure).",
+  "estimate": "S",
+  "dependencies": [
+    "HELLO-S01-T01"
+  ],
+  "feature_id": null
+}

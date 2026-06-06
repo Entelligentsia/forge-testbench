@@ -1,0 +1,9 @@
+{
+  "bugId": "HELLO-BUG-001",
+  "title": "--count with --shout repeats one greeting too few",
+  "severity": "minor",
+  "status": "reported",
+  "path": "engineering/bugs/HELLO-BUG-001",
+  "reportedAt": "2026-06-06T00:00:00Z",
+  "description": "Reported via BUG_REPORT.md: `hello Alice --count 5 --shout` is expected to print HELLO, ALICE! five times. Investigate the count loop and the shout/count interaction; add a regression guard either way."
+}

@@ -1,0 +1,36 @@
+{
+  "paths": {
+    "forgeRef": "1.2.20",
+    "engineering": "engineering",
+    "store": ".forge/store",
+    "workflows": ".forge/workflows",
+    "commands": ".claude/commands/hello",
+    "templates": ".forge/templates",
+    "customCommands": "engineering/commands",
+    "forgeRoot": "/home/boni/.nvm/versions/node/v24.3.0/lib/node_modules/@entelligentsia/forgecli/dist/forge-payload"
+  },
+  "version": "1.2.20",
+  "project": {
+    "name": "hello",
+    "prefix": "HELLO"
+  },
+  "stack": {},
+  "commands": {
+    "test": "python -m pytest"
+  },
+  "pipeline": {
+    "maxReviewIterations": 3
+  },
+  "sprint": {
+    "execution": {
+      "mode": "sequential",
+      "maxConcurrentAgents": 3
+    }
+  },
+  "calibrationBaseline": {
+    "lastCalibrated": "2026-06-06",
+    "version": "1.2.20",
+    "masterIndexHash": "5d8439fe380a41682ea11b7b842a7001295ed2f3189d1065280f259eb90d78a7",
+    "sprintsCovered": []
+  }
+}

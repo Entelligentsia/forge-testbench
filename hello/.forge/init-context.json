@@ -1,0 +1,26 @@
+{
+  "project": {
+    "name": "",
+    "prefix": ""
+  },
+  "commands": {
+    "syntaxCheck": "",
+    "test": "",
+    "build": "",
+    "lint": ""
+  },
+  "paths": {
+    "forgeRef": "1.2.20",
+    "engineering": "engineering",
+    "store": ".forge/store",
+    "workflows": ".forge/workflows",
+    "commands": ".claude/commands/forge",
+    "templates": ".forge/templates",
+    "customCommands": "engineering/commands"
+  },
+  "personas": [],
+  "templates": [],
+  "architectureDocs": [],
+  "entities": [],
+  "skillWiring": []
+}

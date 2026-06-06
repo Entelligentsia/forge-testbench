@@ -1,0 +1,714 @@
+{
+  "files": {
+    ".forge/tools/artifact.cjs": {
+      "hash": "sha256:d7a3f25ad4bda9f262bbddc399968647974f0db20fea536ce7a0f21f6aff8dae",
+      "generatedAt": "2026-06-06T13:40:59.842Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/artifact-store.cjs": {
+      "hash": "sha256:7fe4de3832bb0ba20c1dc31ffa0d3453239e7821c10a3bfbf857ed70c59524c5",
+      "generatedAt": "2026-06-06T13:40:59.859Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/backfill-provider.cjs": {
+      "hash": "sha256:71c7339ad747315af9283e455733d04fad57c7c69739a579fa665fdb06515632",
+      "generatedAt": "2026-06-06T13:40:59.877Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/banners.cjs": {
+      "hash": "sha256:ad3a2d7915430774602a23ebb5837baf6d5cc02fc8b62a265fcdfa3d806bd232",
+      "generatedAt": "2026-06-06T13:40:59.893Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/build-context-pack.cjs": {
+      "hash": "sha256:360473a13c3b8b3ecc9e1370deb724c572996ba1754ef7394027da506d40a2ab",
+      "generatedAt": "2026-06-06T13:40:59.910Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/build-init-context.cjs": {
+      "hash": "sha256:42b9c836542611a63e9f0839d97b9d5edcebb9ec437415c558383872935b4b5f",
+      "generatedAt": "2026-06-06T13:40:59.927Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/build-overlay.cjs": {
+      "hash": "sha256:ebebeda0304ad4875a2919299920ef8aa81334dd281a1344f5d3730396941f87",
+      "generatedAt": "2026-06-06T13:40:59.943Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/build-persona-pack.cjs": {
+      "hash": "sha256:61423400a50baa1417e646181679bdcdb3813cd9c10f9fc3c4e11fedb50e8589",
+      "generatedAt": "2026-06-06T13:40:59.960Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/check-structure.cjs": {
+      "hash": "sha256:48e0404fd49d5199058890442445db092c9ff9383c5226cb8550eaafbfddf08c",
+      "generatedAt": "2026-06-06T13:40:59.978Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/collate.cjs": {
+      "hash": "sha256:43493636faa811bc04702a851480babb6a98c8941ffd9013357ef3c10a1056a6",
+      "generatedAt": "2026-06-06T13:40:59.993Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/commit-task.cjs": {
+      "hash": "sha256:1ad54fab78329124e9ef3b4034409012d71ba356fea4e2e7d80f7c9323aaf9b9",
+      "generatedAt": "2026-06-06T13:41:00.009Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/compression-gate.cjs": {
+      "hash": "sha256:7090346f7b1f91704b53a616021d4d69ba5c2bbdc748c57194754705bda4a900",
+      "generatedAt": "2026-06-06T13:41:00.025Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/delete-candidate-detector.cjs": {
+      "hash": "sha256:8ed9c1a0a2d0088b034ec36d0eeee96a1a598ace63edfd4c75e0326a552a2867",
+      "generatedAt": "2026-06-06T13:41:00.042Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/friction-emit.cjs": {
+      "hash": "sha256:15a3237a2f068d4ac73ccb035325b79bb6c42a38a1b38f94235da7dea7b72470",
+      "generatedAt": "2026-06-06T13:41:00.059Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/generation-manifest.cjs": {
+      "hash": "sha256:cc602a63e6c5b06912fe4c363105e096e16b63d78a6dd7ba59fdf7cc830c58e8",
+      "generatedAt": "2026-06-06T13:41:00.075Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/judge-proposal.cjs": {
+      "hash": "sha256:113faf5a4f7b56ea09af9576a3fd231b94973ddfba3042726b94b64a6158842a",
+      "generatedAt": "2026-06-06T13:41:00.091Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/manage-config.cjs": {
+      "hash": "sha256:d9aaa00b6ea13f89021fcea3cd25bb4387ae1794f6b87676a7e89f4d5d6eb805",
+      "generatedAt": "2026-06-06T13:41:00.107Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/manage-versions.cjs": {
+      "hash": "sha256:88439bc1e97a16c0b4fa240c3e51d3bfc9710f22a3106da601be347ef863d738",
+      "generatedAt": "2026-06-06T13:41:00.124Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/parse-gates.cjs": {
+      "hash": "sha256:3245a267313e978bcb0e8741b263d0903a33fe84ac12aeb193b8e6f4932e0625",
+      "generatedAt": "2026-06-06T13:41:00.141Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/postflight-gate.cjs": {
+      "hash": "sha256:a8d6c89bb2ea51a02d9b6003033e8e4ea14513b01196ae21b95f39ee4fecb2b5",
+      "generatedAt": "2026-06-06T13:41:00.158Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/preflight-gate.cjs": {
+      "hash": "sha256:f0614c4a4803e2d429d0cf269cabf53a3e3b16f304245241abd1698b71c128bd",
+      "generatedAt": "2026-06-06T13:41:00.175Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/queue-drain.cjs": {
+      "hash": "sha256:035c9db85a315fdc6f5dba36813960f27db3d73bdef8e3b1dee1bde7ebbd5af7",
+      "generatedAt": "2026-06-06T13:41:00.191Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/read-verdict.cjs": {
+      "hash": "sha256:fa1da18c9600e477897c8dedd1287c94df13e178e8c95e043c321838ef7bd4c9",
+      "generatedAt": "2026-06-06T13:41:00.208Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/replay-scoring.cjs": {
+      "hash": "sha256:c744cb329f6d00b5dd286967dcd6b08a713ba530b323adf91ddc728057a62618",
+      "generatedAt": "2026-06-06T13:41:00.224Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/seed-store.cjs": {
+      "hash": "sha256:685c8da06e89c2aa542ac9037deebfe7700a2fb639b00de43af91026f21b2294",
+      "generatedAt": "2026-06-06T13:41:00.242Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/store.cjs": {
+      "hash": "sha256:df747d362160028190ba5e9a302975a2e2514fdcbe292db6767a6f3fbaf62213",
+      "generatedAt": "2026-06-06T13:41:00.259Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/store-cli.cjs": {
+      "hash": "sha256:a932c51fca0f5a1ae7712850e12bf4ba5d414864ee7d1ed62f766142f0de6963",
+      "generatedAt": "2026-06-06T13:41:00.275Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/store-query.cjs": {
+      "hash": "sha256:a86b8847f8c8c4f20aa2a77aa8c31f9d16762cc7f0384269ac2997d15665764d",
+      "generatedAt": "2026-06-06T13:41:00.293Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/substitute-placeholders.cjs": {
+      "hash": "sha256:cd86c5f2ea5324fe78c495a0c1503781518cecb5c72b6468b16310d9d7d8f74b",
+      "generatedAt": "2026-06-06T13:41:00.309Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/validate-store.cjs": {
+      "hash": "sha256:d58ad80c0debfa047057629158eee1bfdc134c6be6276a718bccf4cc7e09421e",
+      "generatedAt": "2026-06-06T13:41:00.326Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/verify-apply.cjs": {
+      "hash": "sha256:e49adde7d81a5f74753e17780c6ea48ebaddd69021c2b5d9ac69ccb06583c44c",
+      "generatedAt": "2026-06-06T13:41:00.343Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/verify-integrity.cjs": {
+      "hash": "sha256:3ec3c970dd3d7c3001f8f373bcc40556803eadd2fc2afafb14f1c232cba4cc3f",
+      "generatedAt": "2026-06-06T13:41:00.360Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/verify-phase.cjs": {
+      "hash": "sha256:d2fcecc434b3a4ab54340f5af60e26709e17fccc177845a4d371442cac6fe797",
+      "generatedAt": "2026-06-06T13:41:00.377Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/list-skills.js": {
+      "hash": "sha256:e5d47fdd2e798db1acc5f7c6773e059d9fad9661bbcfb4c33f9c000082542889",
+      "generatedAt": "2026-06-06T13:41:00.393Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/artifact-kinds.cjs": {
+      "hash": "sha256:f10a83d07a231d76e41a9e7b978ba4a8fd060c5bbc20ea8b4ddb5c00261088db",
+      "generatedAt": "2026-06-06T13:41:00.409Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/forge-root.cjs": {
+      "hash": "sha256:df8595c291908a486faee04a6b31c3d76b33b666ca718b426ce776718f6cd290",
+      "generatedAt": "2026-06-06T13:41:00.425Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/frontmatter.cjs": {
+      "hash": "sha256:3153e12de98d5a346cbe70a4587c57ce6fbef9c5dca6c6d3c4fa107786933e54",
+      "generatedAt": "2026-06-06T13:41:00.442Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/fsutil.cjs": {
+      "hash": "sha256:7becf9180dd02d4828b0d80b6a8907a1d5396f7f58c28fce85f857a8516f17f0",
+      "generatedAt": "2026-06-06T13:41:00.459Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/json-io.cjs": {
+      "hash": "sha256:be0bd05b5f5e1473e693f69957a0d111a5fa57f9ae770a88ef5a6b5db805b7d1",
+      "generatedAt": "2026-06-06T13:41:00.475Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/paths.cjs": {
+      "hash": "sha256:ac602452c5e2baa6b280033babe83a80e9c4ab5d2ad6b1c6839e96900a9cb69c",
+      "generatedAt": "2026-06-06T13:41:00.492Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/pricing.cjs": {
+      "hash": "sha256:e2995a8ee0ff931f2d0adc19baee2013a33522504c4df1c0e11a2b3e2c6c53e6",
+      "generatedAt": "2026-06-06T13:41:00.507Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/project-root.cjs": {
+      "hash": "sha256:4c7379cf9671fa753211c8f0ba112fb63fec46b5ca8af57e5e8939c8631fd139",
+      "generatedAt": "2026-06-06T13:41:00.524Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/schema-loader.cjs": {
+      "hash": "sha256:92f1fc3bb817d197c300a6d5e5e2ba154eaa08e5807fb5d8a7bf553469302883",
+      "generatedAt": "2026-06-06T13:41:00.540Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/slug.cjs": {
+      "hash": "sha256:53aae3d4aa69abd6e4668f3886ec570ecce15656294d710dd818e738039e52d5",
+      "generatedAt": "2026-06-06T13:41:00.557Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/store-facade.cjs": {
+      "hash": "sha256:1a3aef025675ff586f688bda4db38ff39b0e32ea41ae51ffe89924f0a50467da",
+      "generatedAt": "2026-06-06T13:41:00.573Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/store-nlp.cjs": {
+      "hash": "sha256:467d9637f04cdb99925445b76ee510dd745be03624e149f6b62d5941a54dc00c",
+      "generatedAt": "2026-06-06T13:41:00.589Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/store-query-exec.cjs": {
+      "hash": "sha256:9652c631b8e38f51c7bc7450e2c6771ed23dc069425a068d894312196971ed88",
+      "generatedAt": "2026-06-06T13:41:00.607Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/suggest.cjs": {
+      "hash": "sha256:194c398dfd58a9da4a7cb473d915cae43d32e232cfd605a32071e620763acdf0",
+      "generatedAt": "2026-06-06T13:41:00.623Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/result.js": {
+      "hash": "sha256:d5284edd35f0bf3b150ab8e8b8722d0c6027dd37ae6457b5370450e29df7f964",
+      "generatedAt": "2026-06-06T13:41:00.640Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/tools/lib/validate.js": {
+      "hash": "sha256:0a1b4f140e7f50bea2db501854556539f47c3e916f321d188fba9d62a0f21513",
+      "generatedAt": "2026-06-06T13:41:00.657Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/architect_approve.md": {
+      "hash": "sha256:9394b60d6b8845a2a2263228cf26ec31a9212dc55a4156fb8679b2a3af809338",
+      "generatedAt": "2026-06-06T13:41:56.472Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/architect_review_sprint_completion.md": {
+      "hash": "sha256:50899b8209f7f7a9f68553ca40a81bf21bef96e9a68193bae218773385a8eb2d",
+      "generatedAt": "2026-06-06T13:41:56.487Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/architect_sprint_intake.md": {
+      "hash": "sha256:bf00808677b7490952aeabf34b24fe4023ad644fdb5b34af774af4e852e6e0bb",
+      "generatedAt": "2026-06-06T13:41:56.502Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/architect_sprint_plan.md": {
+      "hash": "sha256:bee7629539f42cec0edd8edcd14e6ac4024f658168aa36e3e8837de5a0683318",
+      "generatedAt": "2026-06-06T13:41:56.518Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/collator_agent.md": {
+      "hash": "sha256:65d3986a620dd137a9ed01679bac40aa0af3409ac3760180fb3c8fab589822e9",
+      "generatedAt": "2026-06-06T13:41:56.532Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/commit_task.md": {
+      "hash": "sha256:0947a08d15bdd1cc0a356223bd4dc455a59e3c4854cf5188fe8cf19f496f0c24",
+      "generatedAt": "2026-06-06T13:41:56.547Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/enhance.md": {
+      "hash": "sha256:5b6b107e4b836e22950a87af584cec5daabbc5677fe32c243ddced214ab275b4",
+      "generatedAt": "2026-06-06T13:41:56.561Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/implement_plan.md": {
+      "hash": "sha256:0c857d1ff2661d7dc9a2bf21255aa0cc4674c70cd20949197048d0be6b5dfc91",
+      "generatedAt": "2026-06-06T13:41:56.576Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/migrate_structural.md": {
+      "hash": "sha256:7b83882e9f3a102910ba7b064ff426801d86a14c6abc76250a339e2e7738c3cb",
+      "generatedAt": "2026-06-06T13:41:56.592Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/plan_task.md": {
+      "hash": "sha256:42226b060404eb5f8d40d3dadef787070d62d751a6df53adb360e8084167041e",
+      "generatedAt": "2026-06-06T13:41:56.606Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/quiz_agent.md": {
+      "hash": "sha256:7a66e7cb19de42cd7435b2702360d6d91120f167d068225f8bc4d25a75a2c363",
+      "generatedAt": "2026-06-06T13:41:56.621Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/review_code.md": {
+      "hash": "sha256:2249e65c9ead05941977033014c720d7960c4fb47080b360188184a07c3b00e6",
+      "generatedAt": "2026-06-06T13:41:56.636Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/review_plan.md": {
+      "hash": "sha256:6fd597b3e1a57b3f3173e79c083311b4f81099e451044e319dbdb63362217d0e",
+      "generatedAt": "2026-06-06T13:41:56.650Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/sprint_retrospective.md": {
+      "hash": "sha256:02279e03a59cc46d378f88ce3ccdfc77d3451fe1aa3bc5a6d60555f47d84c26b",
+      "generatedAt": "2026-06-06T13:41:56.665Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/triage.md": {
+      "hash": "sha256:dfb605d1c54820c69828a0acd28c0592ea34910b1e08ecb87698b36c1dcc9df3",
+      "generatedAt": "2026-06-06T13:41:56.680Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/update_implementation.md": {
+      "hash": "sha256:30c9710f8315b9b0a3c594d5356856359e0ebb6b9dd3e224bb6458cfcd45c7a5",
+      "generatedAt": "2026-06-06T13:41:56.695Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/update_plan.md": {
+      "hash": "sha256:a2828ffc7f5fedd8a5d2729b2f1bf4e77b1914669206747a7a8ef2701a5b32a2",
+      "generatedAt": "2026-06-06T13:41:56.710Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/validate_task.md": {
+      "hash": "sha256:231dcce82d5e504f8faaaf97dc01354366f37839d63c0852063ea526b808862f",
+      "generatedAt": "2026-06-06T13:41:56.724Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/context-injection.md": {
+      "hash": "sha256:6153f227ab6711eec237eb253c3f0fe23f92f5980d6aaee8ba064af55f9dff1c",
+      "generatedAt": "2026-06-06T13:41:56.738Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/event-emission-schema.md": {
+      "hash": "sha256:bac6e6c01aa1065bcbb4646fe1c395b6ccdc9e60da4228f6fda2bd047f3b1ed6",
+      "generatedAt": "2026-06-06T13:41:56.753Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/event-vocabulary.md": {
+      "hash": "sha256:2690c37ba3b33188ec4bf5354e5bc579a8b50e5995cba50c826d6292ccf12475",
+      "generatedAt": "2026-06-06T13:41:56.768Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/finalize.md": {
+      "hash": "sha256:6664fa3a32f5e78455bc1656ede8461fff82c01ee11364f8a8f67e2d01d75326",
+      "generatedAt": "2026-06-06T13:41:56.782Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/friction-emit.md": {
+      "hash": "sha256:afe17a96af66fca4d4b9446c8ba54e70b4a3b3c86cce1a0c473015b40bdaf6dd",
+      "generatedAt": "2026-06-06T13:41:56.798Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/generation-instructions.md": {
+      "hash": "sha256:251247d4ec53889161388620caff73e083816b1f5f8db22f1a05d72e89f17242",
+      "generatedAt": "2026-06-06T13:41:56.813Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/iron-laws.md": {
+      "hash": "sha256:8bf6f2c642fa5124f7805f542bfb61dc5986976f6e3bab988414f540f57e6f1c",
+      "generatedAt": "2026-06-06T13:41:56.828Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/progress-reporting.md": {
+      "hash": "sha256:17c574417dc8781f847aa9a458322b0cd4d037f81c3431593f8d8cea85f5483a",
+      "generatedAt": "2026-06-06T13:41:56.843Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/store-cli-verbs.md": {
+      "hash": "sha256:6a08fb63a823ea1375f907d5f76dcc80c23bbb55ecf6fa31146f2f6e125cf98a",
+      "generatedAt": "2026-06-06T13:41:56.857Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/workflows/_fragments/store-write-verification.md": {
+      "hash": "sha256:b7c26ed90e44452b278c4e7e6c523867876122f74de9bfccbe4feb52786f9408",
+      "generatedAt": "2026-06-06T13:41:56.872Z",
+      "generatedByVersion": "1.2.19"
+    },
+    ".forge/schemas/bug.schema.json": {
+      "hash": "sha256:27633798925e7e841a4cc790cf9f84b19ed54848b0825b3eb8c04aa5b2efe579",
+      "generatedAt": "2026-06-06T13:48:33.178Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/collation-state.schema.json": {
+      "hash": "sha256:a48ccc1116699531e0222276b99dbb9e9bb4067622130fd42bc53ab30ee7cd0a",
+      "generatedAt": "2026-06-06T13:48:33.194Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/config.schema.json": {
+      "hash": "sha256:150be2a60f6cfc413a426bd1318c1bd6fc673944e55b5b42745dc0947377e33a",
+      "generatedAt": "2026-06-06T13:48:33.210Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/event.schema.json": {
+      "hash": "sha256:425bdf69b4911b4afa556353bc2e20a68d46ec930ef9767658f61fd3d2231ffd",
+      "generatedAt": "2026-06-06T13:48:33.226Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/event-sidecar.schema.json": {
+      "hash": "sha256:38ba85f7c2fbe8bf5e5422ac55603171968c79147118c8a4783169e558b10de4",
+      "generatedAt": "2026-06-06T13:48:33.241Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/feature.schema.json": {
+      "hash": "sha256:bd5016b2dc0c9235d204facbd70d11861a26e1a650646782f7ab96d3409f04b1",
+      "generatedAt": "2026-06-06T13:48:33.256Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/progress-entry.schema.json": {
+      "hash": "sha256:52bbcf58fc3611f823973dd3ff453cb5d9eb9be8a1c261cd727319b6867a6887",
+      "generatedAt": "2026-06-06T13:48:33.270Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/project-context.schema.json": {
+      "hash": "sha256:a6ebb7bc39d65df10e885fe208e3f9b2d572415982649c0362fd580002c45e76",
+      "generatedAt": "2026-06-06T13:48:33.285Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/project-overlay.schema.json": {
+      "hash": "sha256:8d4b3848e8d469e88e7857251e67f9443f40f8141d2019f5ffee5f4b60bbe5a3",
+      "generatedAt": "2026-06-06T13:48:33.300Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/proposal.schema.json": {
+      "hash": "sha256:004cab939c7b56f793913b23b473ccc602299c22f209603cd78763c2a84b6062",
+      "generatedAt": "2026-06-06T13:48:33.316Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/sprint.schema.json": {
+      "hash": "sha256:df900a3fd26346318c708552fa4fd7b04f1987aa2a22eeabab9f91d067c24932",
+      "generatedAt": "2026-06-06T13:48:33.331Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/structure-versions.schema.json": {
+      "hash": "sha256:b1157c4d11c53fa52b2b5da2ef5bd0f7a9d25ab3a1c41322049c4ff2c5e010f7",
+      "generatedAt": "2026-06-06T13:48:33.346Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/task.schema.json": {
+      "hash": "sha256:eaa240247e26db081569f9d6324ce417522a63a726bcff51b889d438306feee2",
+      "generatedAt": "2026-06-06T13:48:33.361Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/.defs/locator.schema.json": {
+      "hash": "sha256:d56e28d56c90c6b3c6163d863f07c9ba0146f69be8790d82880ae01d339c5c8a",
+      "generatedAt": "2026-06-06T13:48:33.375Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/.defs/phaseSummary.schema.json": {
+      "hash": "sha256:15bdea4f3da2d56d43aa23f20494a3abfe55d0001b675401a6f2915c05e55204",
+      "generatedAt": "2026-06-06T13:48:33.391Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/workflows/wfl-fix-bug.js": {
+      "hash": "sha256:62151621d734c792e3f4e2d66ba88ff20083a246495d017bf1627e5e5732fe72",
+      "generatedAt": "2026-06-06T13:48:37.517Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/workflows/wfl-run-sprint.js": {
+      "hash": "sha256:6a86121d76b94f05752dceed70c11ec71313ff70654540f078a3452afaefe3ff",
+      "generatedAt": "2026-06-06T13:48:37.534Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/workflows/wfl-run-task.js": {
+      "hash": "sha256:9fc0691573346da73143ef4485cc7c99d5da2ea8f9baab4360948e15047a0305",
+      "generatedAt": "2026-06-06T13:48:37.552Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/approve.md": {
+      "hash": "sha256:a3d775e287e492beedc2c1ca6188ad593b32d6629cc97f8dee8745810ae9351e",
+      "generatedAt": "2026-06-06T13:48:49.737Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/check-agent.md": {
+      "hash": "sha256:accc22659243551e28fb4045dea0f057403aa028d84e4e1076fba8bc2371a8a7",
+      "generatedAt": "2026-06-06T13:48:49.753Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/collate.md": {
+      "hash": "sha256:b17bd16056c5e3c75d9c8638d68aa1b0d70edc282752ba5e94351212c2f969c2",
+      "generatedAt": "2026-06-06T13:48:49.768Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/commit.md": {
+      "hash": "sha256:1764be340a8b8c8805f1ec160965b53d20bae24be14dba2c6236533ff2a37958",
+      "generatedAt": "2026-06-06T13:48:49.782Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/enhance.md": {
+      "hash": "sha256:6227f5df96ce4da9ee248e015c0e087c78df45e90b8cddecdc3aa67b05ab59c9",
+      "generatedAt": "2026-06-06T13:48:49.797Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/fix-bug.md": {
+      "hash": "sha256:3751c02d727867461a6b566419a995bdc9b5b856aa3a87f13862ac6cf2a0f4ac",
+      "generatedAt": "2026-06-06T13:48:49.812Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/implement.md": {
+      "hash": "sha256:968bb693301d6d54de55be4cdb5ef3bd0dfd14f7173ad233cc29155e120feb2f",
+      "generatedAt": "2026-06-06T13:48:49.827Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/new-sprint.md": {
+      "hash": "sha256:21ee70e8bb434dd02cff087268aef6f2499b9e73e90bed6a35ef2274f7dc126c",
+      "generatedAt": "2026-06-06T13:48:49.841Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/plan.md": {
+      "hash": "sha256:cc83607ac913a35f8a8cee42e2c02acc33de769ac0a7b621b307762836133a46",
+      "generatedAt": "2026-06-06T13:48:49.857Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/plan-sprint.md": {
+      "hash": "sha256:df309a81c8a5a42a61c9c8ca56bdc3b7761eaf2850ab4754a81b601491902725",
+      "generatedAt": "2026-06-06T13:48:49.871Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/retro.md": {
+      "hash": "sha256:34df059cafb90bb65adac5c2859cf69f69215b80620c169a4d2c328b5fa7cbb5",
+      "generatedAt": "2026-06-06T13:48:49.886Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/review-code.md": {
+      "hash": "sha256:1a209710c66943fcc5ecf1f603c4486353882234bde73e290e271bcc235a3c07",
+      "generatedAt": "2026-06-06T13:48:49.901Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/review-plan.md": {
+      "hash": "sha256:bfe4ad74c1cb244612366ce55b8de43222833a13b29f6f33dd7ff5ddd89b49f9",
+      "generatedAt": "2026-06-06T13:48:49.915Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/run-sprint.md": {
+      "hash": "sha256:797fc114db367fbd5674e9fd43948c4d6eaeb71561f635e8fd4b635bb897b069",
+      "generatedAt": "2026-06-06T13:48:49.930Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/run-task.md": {
+      "hash": "sha256:ea5086b6fe21de99aa475d1aaf5cb07342e05f9ed8ec0d8af2f194bf2620e266",
+      "generatedAt": "2026-06-06T13:48:49.945Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".claude/commands/hello/validate.md": {
+      "hash": "sha256:f1b736405c9a98e09355373d2b2cad0b6140b2d24c191d808c5cd6feaa7a73b1",
+      "generatedAt": "2026-06-06T13:48:49.960Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/personas/architect.md": {
+      "hash": "sha256:260078c7d7e6888c6ed88c81c58ea8cda633e62fb053a579cc800cfd4ba6d69d",
+      "generatedAt": "2026-06-06T13:49:03.565Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/personas/bug-fixer.md": {
+      "hash": "sha256:43d27f7f5bba9051f7fe86edbb63e82ef7fd173aba320d8209a8b5646ba170c6",
+      "generatedAt": "2026-06-06T13:49:03.580Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/personas/collator.md": {
+      "hash": "sha256:44a363171e03ed31d1bf5fcf42fcc3ed7f5ee8c1bf32bc43f61d9bc3ff6a138f",
+      "generatedAt": "2026-06-06T13:49:03.596Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/personas/engineer.md": {
+      "hash": "sha256:c07bd6be2826631846f7653965f54fa1445cf0db8009d5857bb2cccb0979f1ac",
+      "generatedAt": "2026-06-06T13:49:03.612Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/personas/librarian.md": {
+      "hash": "sha256:603b435d2736483043688c93f3e2905a2b0e13897952b978deaf42882e668fca",
+      "generatedAt": "2026-06-06T13:49:03.626Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/personas/orchestrator.md": {
+      "hash": "sha256:8208828954d20d7e6187e2cf46342095532eb91b212b6d20e5de175dd9936088",
+      "generatedAt": "2026-06-06T13:49:03.642Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/personas/product-manager.md": {
+      "hash": "sha256:a0f05832603766b7ef71e1d5d6b268311134ba8ed3c3c21d06cc53c2b905ff77",
+      "generatedAt": "2026-06-06T13:49:03.656Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/personas/qa-engineer.md": {
+      "hash": "sha256:d61f0982f999c13088302e5f3a5186495d28b92a72f1e7a3c9f342fe4bb5187a",
+      "generatedAt": "2026-06-06T13:49:03.671Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/personas/supervisor.md": {
+      "hash": "sha256:dc627f8115905cfc2878d54c1bc5ed52fc1621ec927385b0c42e2d4009b4ae33",
+      "generatedAt": "2026-06-06T13:49:03.686Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/skills/architect-skills.md": {
+      "hash": "sha256:cce7e4907f99f8218b7a90a7144072ba944368e27885da72d265fe4e357ca9c8",
+      "generatedAt": "2026-06-06T13:49:03.702Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/skills/bug-fixer-skills.md": {
+      "hash": "sha256:fde758662273ee6626426d814eb8ed2a46a24ff4bea4a715231c813f8cc75fc2",
+      "generatedAt": "2026-06-06T13:49:03.716Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/skills/collator-skills.md": {
+      "hash": "sha256:bc6e82add4641502f93ef6bad17df9d65e335e16f4b54524d8f8d04c4c4e6406",
+      "generatedAt": "2026-06-06T13:49:03.731Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/skills/engineer-skills.md": {
+      "hash": "sha256:0a090e6c86b3402f41961c3bea924bf666e9fa1db995b2023d1ab116c4ead46f",
+      "generatedAt": "2026-06-06T13:49:03.746Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/skills/generic-skills.md": {
+      "hash": "sha256:397c9b60a3f5634a4b02671c8b9869c4582c01eda392a03180f4c708b9175015",
+      "generatedAt": "2026-06-06T13:49:03.760Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/skills/librarian-skills.md": {
+      "hash": "sha256:3700cc188fd2b8b9f2a2282692c00c99c7b545eb5ac494c3ef189c1b3f80cb7a",
+      "generatedAt": "2026-06-06T13:49:03.776Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/skills/qa-engineer-skills.md": {
+      "hash": "sha256:b46288bb0b388fd612514218d77be544e45323583765b0821a1d917626a7a34a",
+      "generatedAt": "2026-06-06T13:49:03.791Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/skills/store-custodian-skills.md": {
+      "hash": "sha256:2a4429c6859f2d696259470b6e564849b99dd917fe7d7785b654804c9627de7a",
+      "generatedAt": "2026-06-06T13:49:03.805Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/skills/supervisor-skills.md": {
+      "hash": "sha256:d8e1551260c89f9983e8718367e8df7e81fe1438a7d987e0d3666df1162f83a3",
+      "generatedAt": "2026-06-06T13:49:03.819Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/CODE_REVIEW_TEMPLATE.md": {
+      "hash": "sha256:543bde964b443000896ce9b69308439133b5227632785b6794205151ce764912",
+      "generatedAt": "2026-06-06T13:49:07.914Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/COST_REPORT_TEMPLATE.md": {
+      "hash": "sha256:b9f6acebb74fef55bd6bbe1c2d6de94860e0731632bdc3005c364d2945a7e421",
+      "generatedAt": "2026-06-06T13:49:07.929Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/PLAN_REVIEW_TEMPLATE.md": {
+      "hash": "sha256:088c019cc20c6e1aada3457465972360e8382c61f920711cc2e68302605287b8",
+      "generatedAt": "2026-06-06T13:49:07.944Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/PLAN_TEMPLATE.md": {
+      "hash": "sha256:6f81f753651176a7b9fd225f9ccdd2290fc194cf1325bab160568e2cb2ed6a2e",
+      "generatedAt": "2026-06-06T13:49:07.959Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/PROGRESS_TEMPLATE.md": {
+      "hash": "sha256:c37f3c66e3e855b6429cbecfd0fcded62a1d63a9865386efd3fd82e936daf5ad",
+      "generatedAt": "2026-06-06T13:49:07.974Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/RETROSPECTIVE_TEMPLATE.md": {
+      "hash": "sha256:aafa2c69bac213ad5f7ba8e3e6e7e9b0fb1deb7df19cfd2172a8d59cd4bd8e38",
+      "generatedAt": "2026-06-06T13:49:07.988Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/SPRINT_MANIFEST_TEMPLATE.md": {
+      "hash": "sha256:8319314520cbd14c5af9dbe42a43f5654e86515ede0fd36f6fa67100785a2706",
+      "generatedAt": "2026-06-06T13:49:08.002Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/SPRINT_REQUIREMENTS_TEMPLATE.md": {
+      "hash": "sha256:dcbd130d62edfcb33aa4fdd4556f14f2bd420354693da95dfd4b5db95af18cb4",
+      "generatedAt": "2026-06-06T13:49:08.016Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/TASK_PROMPT_TEMPLATE.md": {
+      "hash": "sha256:1e677570acd0f820a1821d8be06d9f73643f593ecef3174c0a94411fcaac6b0e",
+      "generatedAt": "2026-06-06T13:49:08.033Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/templates/PLAN_SUMMARY_TEMPLATE.json": {
+      "hash": "sha256:f119c6b802d77c41030c171e3543f2f44831ddfc3f26b80b9ad9c0a4b29f4b47",
+      "generatedAt": "2026-06-06T13:49:08.047Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/_defs/locator.schema.json": {
+      "hash": "sha256:d56e28d56c90c6b3c6163d863f07c9ba0146f69be8790d82880ae01d339c5c8a",
+      "generatedAt": "2026-06-06T13:49:31.935Z",
+      "generatedByVersion": "1.2.20"
+    },
+    ".forge/schemas/_defs/phaseSummary.schema.json": {
+      "hash": "sha256:15bdea4f3da2d56d43aa23f20494a3abfe55d0001b675401a6f2915c05e55204",
+      "generatedAt": "2026-06-06T13:49:31.953Z",
+      "generatedByVersion": "1.2.20"
+    }
+  }
+}
