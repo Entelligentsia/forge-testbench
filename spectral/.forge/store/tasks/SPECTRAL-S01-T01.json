@@ -1,0 +1,11 @@
+{
+  "taskId": "SPECTRAL-S01-T01",
+  "sprintId": "SPECTRAL-S01",
+  "title": "Implement layered audio mixing engine",
+  "status": "draft",
+  "path": "engineering/sprints/SPECTRAL-S01/SPECTRAL-S01-T01",
+  "description": "SoundEngine.run plays only _brown_noise regardless of the mood profile. Iterate profile[layers], synthesize each known layer (brown noise, sine, binaural already exist as helpers), sum with numpy (pre-allocated buffers, vectorized \u2014 no per-callback allocations), normalize the mix.",
+  "estimate": "M",
+  "dependencies": [],
+  "feature_id": null
+}

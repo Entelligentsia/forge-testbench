@@ -1,0 +1,13 @@
+{
+  "taskId": "EMBER-S01-T02",
+  "sprintId": "EMBER-S01",
+  "title": "Recipe validation: line numbers + device-reference checks",
+  "status": "draft",
+  "path": "engineering/sprints/EMBER-S01/EMBER-S01-T02",
+  "description": "Extend check/--validate to report YAML syntax errors with line numbers and to validate that every device referenced by rules (when/then/unless) is declared in the devices map. dsl.Parse currently validates only the recipe name \u2014 an unknown device reference parses clean and fails silently at runtime.",
+  "estimate": "M",
+  "dependencies": [
+    "EMBER-S01-T01"
+  ],
+  "feature_id": null
+}

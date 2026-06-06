@@ -82,9 +82,6 @@ Personas live in `.forge/personas/`.
 |----------|---------|
 | [Plan](.forge/workflows/plan_task.md) | Research codebase → implementation plan |
 | [Implement](.forge/workflows/implement_plan.md) | Execute approved plan → code changes |
-| [Fix bug](.forge/workflows/fix_bug.md) | Triage → fix → verify |
-| [Run task](.forge/workflows/orchestrate_task.md) | Full task pipeline (plan → implement → review → commit) |
-| [Run sprint](.forge/workflows/run_sprint.md) | Full sprint orchestration |
 | [Sprint plan](.forge/workflows/architect_sprint_plan.md) | Sprint planning and task decomposition |
 | [Sprint intake](.forge/workflows/architect_sprint_intake.md) | Sprint intake and requirements elicitation |
 <!-- /forge-workflow-links -->

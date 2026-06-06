@@ -1,0 +1,9 @@
+{
+  "bugId": "SPECTRAL-BUG-001",
+  "title": "Audible clicks every ~100ms during playback \u2014 brown noise re-seeded per callback chunk",
+  "severity": "major",
+  "status": "reported",
+  "path": "engineering/bugs/SPECTRAL-BUG-001",
+  "reportedAt": "2026-06-06T00:00:00Z",
+  "description": "engine.py callback calls _brown_noise(frames) fresh on every ~100ms chunk: new random walk, normalised per chunk \u2014 amplitude jumps at every boundary produce rhythmic clicking. The noise state must persist across callbacks (precompute or carry the walk + running normalisation). See BUG_REPORT.md."
+}

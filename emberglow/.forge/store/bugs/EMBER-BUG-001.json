@@ -1,0 +1,9 @@
+{
+  "bugId": "EMBER-BUG-001",
+  "title": "unless: guard is parsed but never enforced by the engine",
+  "severity": "major",
+  "status": "reported",
+  "path": "engineering/bugs/EMBER-BUG-001",
+  "reportedAt": "2026-06-06T00:00:00Z",
+  "description": "Rule.Unless is deserialised by dsl.Parse (parser.go Rule struct) but engine.Run never consults it \u2014 rules carrying an unless: guard execute exactly as if unguarded. See BUG_REPORT.md for the reproducing recipe."
+}

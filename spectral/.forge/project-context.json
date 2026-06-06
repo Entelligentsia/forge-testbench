@@ -1,0 +1,10 @@
+{
+  "project": {
+    "name": "spectral",
+    "prefix": "SPE"
+  },
+  "knowledgeBase": {
+    "path": "engineering",
+    "indexFile": "engineering/MASTER_INDEX.md"
+  }
+}

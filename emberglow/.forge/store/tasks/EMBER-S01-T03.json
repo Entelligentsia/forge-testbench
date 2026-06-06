@@ -1,0 +1,13 @@
+{
+  "taskId": "EMBER-S01-T03",
+  "sprintId": "EMBER-S01",
+  "title": "go test coverage for parser + validation",
+  "status": "draft",
+  "path": "engineering/sprints/EMBER-S01/EMBER-S01-T03",
+  "description": "Table-driven go tests for dsl.Parse and the new validation: valid example recipe parses; missing name rejected; unknown device reference in when/then/unless reported with the rule name; malformed YAML reports a line number.",
+  "estimate": "S",
+  "dependencies": [
+    "EMBER-S01-T02"
+  ],
+  "feature_id": null
+}

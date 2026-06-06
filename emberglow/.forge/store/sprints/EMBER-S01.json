@@ -1,0 +1,12 @@
+{
+  "sprintId": "EMBER-S01",
+  "title": "Recipe validation + CLI entrypoint",
+  "status": "planning",
+  "taskIds": [
+    "EMBER-S01-T01",
+    "EMBER-S01-T02",
+    "EMBER-S01-T03"
+  ],
+  "createdAt": "2026-06-06T00:00:00Z",
+  "executionMode": "sequential"
+}

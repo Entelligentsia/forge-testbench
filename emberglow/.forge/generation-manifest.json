@@ -1,0 +1,54 @@
+{
+  "files": {
+    "engineering/MASTER_INDEX.md": {
+      "hash": "sha256:3b272fc9ad71dbb94a2b42bfad05f2accb1299f982654d205753ee9ea040d587",
+      "generatedAt": "2026-06-06T14:20:46.219Z",
+      "generatedByVersion": "1"
+    },
+    "engineering/architecture/INDEX.md": {
+      "hash": "sha256:016d1698c0907a9725305b66b1ada7eae75b0a204243544be3bc69da8acd8d89",
+      "generatedAt": "2026-06-06T14:20:46.219Z",
+      "generatedByVersion": "1"
+    },
+    "engineering/architecture/database.md": {
+      "hash": "sha256:714689e39fdc3c845123226a5c4fd792e325d9d83c0405b62909bec8dbab4731",
+      "generatedAt": "2026-06-06T14:20:46.219Z",
+      "generatedByVersion": "1"
+    },
+    "engineering/architecture/deployment.md": {
+      "hash": "sha256:0c11c2027a9dc76c67b4ae6e22a9b822a00c412f498eb6bc5683db26764d6d74",
+      "generatedAt": "2026-06-06T14:20:46.219Z",
+      "generatedByVersion": "1"
+    },
+    "engineering/architecture/entity-model.md": {
+      "hash": "sha256:133c5e75d197ca129d0f2e20babb71abca842871cd07e34430995d895cbd6bf3",
+      "generatedAt": "2026-06-06T14:20:46.220Z",
+      "generatedByVersion": "1"
+    },
+    "engineering/architecture/processes.md": {
+      "hash": "sha256:0f1ecd1172ab85a906f813b7758345ead20078487a6f5bfb47fc8deb8536749c",
+      "generatedAt": "2026-06-06T14:20:46.220Z",
+      "generatedByVersion": "1"
+    },
+    "engineering/architecture/routing.md": {
+      "hash": "sha256:8f9bfbbf6f317296151e3cf02dc50d0f479dd63357149bf8abff421f9dbe9c82",
+      "generatedAt": "2026-06-06T14:20:46.220Z",
+      "generatedByVersion": "1"
+    },
+    "engineering/architecture/stack-checklist.md": {
+      "hash": "sha256:dabf054d663c03f5e1512bffe0ec84b277b3883b12801647b368396687016097",
+      "generatedAt": "2026-06-06T14:20:46.220Z",
+      "generatedByVersion": "1"
+    },
+    "engineering/architecture/stack.md": {
+      "hash": "sha256:ed2d619e5aebfedf1d53dc3d76eec7f263921e5d68dfec2cda81d6ca6ae1c889",
+      "generatedAt": "2026-06-06T14:20:46.220Z",
+      "generatedByVersion": "1"
+    },
+    "engineering/business-domain/INDEX.md": {
+      "hash": "sha256:d22c6f1cb2762502c1309e6777af175468c691fd6b175a197a06282ddb1cbcd9",
+      "generatedAt": "2026-06-06T14:20:46.220Z",
+      "generatedByVersion": "1"
+    }
+  }
+}

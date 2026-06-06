@@ -1,0 +1,11 @@
+{
+  "taskId": "EMBER-S01-T01",
+  "sprintId": "EMBER-S01",
+  "title": "Create cmd/emberglow CLI entrypoint",
+  "status": "draft",
+  "path": "engineering/sprints/EMBER-S01/EMBER-S01-T01",
+  "description": "The README Quick Start promises `go run ./cmd/emberglow` with example/check/run/devices subcommands, but cmd/ does not exist. Create cmd/emberglow/main.go wiring dsl.ExampleRecipe (example), dsl.Parse (check), engine.New+Run (run), and engine.ListDevices (devices).",
+  "estimate": "M",
+  "dependencies": [],
+  "feature_id": null
+}

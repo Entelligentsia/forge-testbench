@@ -1,0 +1,11 @@
+{
+  "taskId": "SPECTRAL-S01-T02",
+  "sprintId": "SPECTRAL-S01",
+  "title": "Reformat mood listing table",
+  "status": "draft",
+  "path": "engineering/sprints/SPECTRAL-S01/SPECTRAL-S01-T02",
+  "description": "spectral moods must render Mood / Description / BPM / Reverb columns (Reverb is missing today) with a bold cyan styled header row, per SPRINT_REQUIREMENTS.md.",
+  "estimate": "S",
+  "dependencies": [],
+  "feature_id": null
+}

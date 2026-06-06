@@ -1,0 +1,10 @@
+{
+  "project": {
+    "name": "emberglow",
+    "prefix": "EGL"
+  },
+  "knowledgeBase": {
+    "path": "engineering",
+    "indexFile": "engineering/MASTER_INDEX.md"
+  }
+}

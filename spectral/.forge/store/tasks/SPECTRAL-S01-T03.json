@@ -1,0 +1,13 @@
+{
+  "taskId": "SPECTRAL-S01-T03",
+  "sprintId": "SPECTRAL-S01",
+  "title": "Add mood-specific row styling",
+  "status": "draft",
+  "path": "engineering/sprints/SPECTRAL-S01/SPECTRAL-S01-T03",
+  "description": "Style each mood row distinctly (e.g. dim for sleep, bright for energize) on top of the T02 table structure.",
+  "estimate": "S",
+  "dependencies": [
+    "SPECTRAL-S01-T02"
+  ],
+  "feature_id": null
+}

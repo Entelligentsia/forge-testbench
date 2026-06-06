@@ -11,8 +11,8 @@ is **git-tracked**; the baseline tag is the single source of truth (the old
 tarball mechanism is retired). forgecli ≥ 1.0.24 self-heals a foreign
 `paths.forgeRoot` to its own bundled payload, so tracked configs are portable.
 
-Onboarded: **cartographer**. (hello / emberglow / spectral are "experience
-init yourself" demo projects — see the root README.)
+Onboarded: **cartographer, hello, emberglow, spectral** — all four projects
+carry runnable fixtures (sprint @ planning, tasks @ draft, bugs @ reported).
 
 ## Day-to-day
 

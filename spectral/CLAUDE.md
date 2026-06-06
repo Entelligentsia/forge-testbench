@@ -53,3 +53,26 @@ Defined in `moods.py:MOODS`. Each profile has: `bpm`, `layers` (list of layer na
 
 - `sounddevice` requires PortAudio to be installed on the host (`apt install portaudio19-dev` / `brew install portaudio`)
 - The current `SoundEngine.run()` only plays brown noise as a placeholder — layer mixing per profile is not yet wired up
+
+<!-- forge-kb-links: managed by Forge — do not edit manually -->
+## Forge Knowledge Base
+
+| Index | Contents |
+|-------|----------|
+| [MASTER_INDEX](engineering/MASTER_INDEX.md) | All sprints, tasks, bugs, and features |
+| [Architecture](engineering/architecture/INDEX.md) | Stack, processes, database, routing, deployment |
+| [Business Domain](engineering/business-domain/INDEX.md) | Entity model and domain concepts |
+
+Personas live in `.forge/personas/`.
+<!-- /forge-kb-links -->
+
+<!-- forge-workflow-links: managed by Forge — do not edit manually -->
+## Forge Workflows
+
+| Workflow | Purpose |
+|----------|---------|
+| [Plan](.forge/workflows/plan_task.md) | Research codebase → implementation plan |
+| [Implement](.forge/workflows/implement_plan.md) | Execute approved plan → code changes |
+| [Sprint plan](.forge/workflows/architect_sprint_plan.md) | Sprint planning and task decomposition |
+| [Sprint intake](.forge/workflows/architect_sprint_intake.md) | Sprint intake and requirements elicitation |
+<!-- /forge-workflow-links -->

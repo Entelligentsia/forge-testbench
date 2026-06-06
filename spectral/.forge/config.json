@@ -1,0 +1,52 @@
+{
+  "version": "1.2.20",
+  "project": {
+    "name": "spectral",
+    "prefix": "SPECTRAL"
+  },
+  "stack": {
+    "primary": [
+      "python3.11+",
+      "click",
+      "rich",
+      "sounddevice",
+      "numpy",
+      "scipy"
+    ],
+    "test": "pytest",
+    "build": "hatchling",
+    "lint": null
+  },
+  "commands": {
+    "test": "python3 -m pytest",
+    "build": "python3 -m pip install -e .",
+    "lint": null
+  },
+  "paths": {
+    "engineering": "engineering",
+    "store": ".forge/store",
+    "workflows": ".forge/workflows",
+    "commands": ".claude/commands/spe",
+    "templates": ".forge/templates",
+    "forgeRoot": "/home/boni/.nvm/versions/node/v24.3.0/lib/node_modules/@entelligentsia/forgecli/dist/forge-payload",
+    "forgeRef": "1.2.20",
+    "customCommands": "engineering/commands"
+  },
+  "installedSkills": [],
+  "mode": "full",
+  "calibrationBaseline": {
+    "lastCalibrated": "2026-06-06T14:22:33.231Z",
+    "version": "1.2.20",
+    "masterIndexHash": "7649a1aabc88491094d9cb6cbd555c36a57faf51445ada11bb27b9e71342bd77",
+    "sprintsCovered": []
+  },
+  "pipeline": {
+    "maxReviewIterations": 3
+  },
+  "sprint": {
+    "execution": {
+      "mode": "sequential",
+      "maxConcurrentAgents": 3
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "sprintId": "SPECTRAL-S01",
+  "title": "Layered mixing engine + rich mood catalog",
+  "status": "planning",
+  "taskIds": [
+    "SPECTRAL-S01-T01",
+    "SPECTRAL-S01-T02",
+    "SPECTRAL-S01-T03"
+  ],
+  "createdAt": "2026-06-06T00:00:00Z",
+  "executionMode": "sequential"
+}

@@ -28,3 +28,9 @@ jobs:
           node-version: 20
       - name: cartographer clone-ready gate
         run: bash testbench/readiness.sh cartographer
+      - name: hello clone-ready gate
+        run: bash testbench/readiness.sh hello
+      - name: emberglow clone-ready gate
+        run: bash testbench/readiness.sh emberglow
+      - name: spectral clone-ready gate
+        run: bash testbench/readiness.sh spectral

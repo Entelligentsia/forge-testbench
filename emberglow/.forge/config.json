@@ -1,0 +1,50 @@
+{
+  "version": "1.2.20",
+  "project": {
+    "name": "emberglow",
+    "prefix": "EMBER"
+  },
+  "stack": {
+    "primary": [
+      "Go 1.22",
+      "gopkg.in/yaml.v3",
+      "charmbracelet/bubbletea",
+      "charmbracelet/lipgloss"
+    ],
+    "test": "go test",
+    "build": "go build",
+    "lint": "go vet"
+  },
+  "commands": {
+    "test": "go test ./...",
+    "build": "go build -o bin/emberglow ./cmd/emberglow",
+    "lint": "go vet ./..."
+  },
+  "paths": {
+    "engineering": "engineering",
+    "store": ".forge/store",
+    "workflows": ".forge/workflows",
+    "commands": ".claude/commands/egl",
+    "templates": ".forge/templates",
+    "forgeRoot": "/home/boni/.nvm/versions/node/v24.3.0/lib/node_modules/@entelligentsia/forgecli/dist/forge-payload",
+    "forgeRef": "1.2.20",
+    "customCommands": "engineering/commands"
+  },
+  "mode": "full",
+  "installedSkills": [],
+  "calibrationBaseline": {
+    "lastCalibrated": "2026-06-06T14:20:45.856Z",
+    "version": "1.2.20",
+    "masterIndexHash": "3b272fc9ad71dbb94a2b42bfad05f2accb1299f982654d205753ee9ea040d587",
+    "sprintsCovered": []
+  },
+  "pipeline": {
+    "maxReviewIterations": 3
+  },
+  "sprint": {
+    "execution": {
+      "mode": "sequential",
+      "maxConcurrentAgents": 3
+    }
+  }
+}
